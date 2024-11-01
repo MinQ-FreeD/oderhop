@@ -1,0 +1,186 @@
+@import url("https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css");
+
+/* 나눔 스퀘어 네오 폰트 */
+@font-face {
+	font-family: "NanumSquareNeo";
+	src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+	src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix)
+			format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff)
+			format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf)
+			format("truetype");
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	letter-spacing: -0.48px; /* −3% of 16px = 16px × −0.03=−0.48px*/
+}
+
+body {
+	max-width: 1920px;
+	margin: 0 auto;
+	/* border: 1px solid red; */
+
+	font-family: "NanumSquareNeo", sans-serif;
+	text-align: center;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+}
+
+img {
+	width: 100%;
+}
+
+/* 
+  사이즈 기준: content-size / 1920 * 100 vw
+  8px > 0.42vw
+  20px > 1.04vw
+
+
+*/
+
+header {
+	position: sticky;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 16.67vw;
+	background-color: bisque;
+}
+
+header #logo {
+	display: inline-block;
+	width: 172px;
+	max-height: 33px;
+	object-fit: cover;
+}
+
+header nav ul {
+	display: flex;
+	gap: 8px;
+}
+
+header nav ul li {
+}
+
+header nav ul li a {
+	display: inline-block;
+	min-width: 120px;
+	padding: 8px 20px;
+	border: 1px solid #000;
+	border-radius: 72px;
+
+	font-size: 14px;
+	font-weight: 700;
+}
+
+header nav ul li .nav-btn-consult {
+}
+
+header nav ul li .nav-btn-demo {
+	background-color: #000;
+	color: white;
+}
+
+/* main banner */
+#main-banner {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	text-align: left;
+
+	border: 1px solid red;
+	height: 650px;
+}
+
+#main-banner h2 {
+	color: black;
+	font-weight: 700;
+	font-size: 38px;
+	line-height: 42px;
+}
+
+#main-banner p {
+	color: #3e5968;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 48px;
+}
+
+#main-banner .banner-btn-consult {
+	display: inline-block;
+	text-align: center;
+	width: 190px;
+	min-width: 120px;
+	padding: 22px 40px;
+	color: white;
+	background-color: #000;
+	border-radius: 72px;
+
+	font-weight: 700;
+	font-size: 19px;
+	white-space: nowrap;
+}
+
+/* sections */
+section {
+}
+
+/* section animation effect */
+section,
+.animated-section {
+}
+
+h2,
+.section-title {
+	font-weight: 700;
+	font-size: 48px;
+	color: black;
+}
+
+/* each section */
+
+/* section-1 */
+.section-1 {
+	border: 1px solid red;
+	height: 1488px;
+}
+
+/* section-2 */
+.section-2 {
+	border: 1px solid red;
+	height: 982px;
+}
+
+.section-2 .section-title {
+}
+
+/* cateogry */
+.section-2 .category {
+}
+
+.section-2 .cateogry .category-btn {
+}
+
+.section-2 .category .category-btn.selected {
+}
+
+/* image container */
+.section-2 .image-container {
+}
+
+.section-2 .image-container img {
+}
+
+.section-2 .image-container img.selected {
+}
