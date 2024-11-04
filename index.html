@@ -1,152 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OderHop</title>
-    <link
-      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="max-container">
-        <img
-          id="logo"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9G4-Ej9sZ7eLUGdKiP4QnOnxQ0ESHkyARIA&s"
-          alt="logo"
-        />
-        <nav>
-          <ul>
-            <li><a class="nav-btn-consult" href="#contact">상담하기</a></li>
-            <li><a class="nav-btn-demo" href="">데모 체험하기</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OderHop</title>
+		<link
+			href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style.css" />
+		<script src="./script.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<div class="max-container">
+				<img
+					id="logo"
+					src="./src/images/PC/PC/logo.png"
+					alt="logo"
+				/>
+				<nav>
+					<ul>
+						<li><a class="nav-btn-consult" href="#contact">상담하기</a></li>
+						<li><a class="nav-btn-demo" href="">데모 체험하기</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
 
-    <main>
-      <div class="main-container">
-        <!-- Main Banner -->
-        <section id="main-banner">
-          <h2 class="section-title">내 매장의 새로운 직원, 오더홉💡</h2>
-          <p>
-            부담없이 테이블 오더를 도입해보세요.<br />
-            직원 급여 고민 · 매장 운영비 걱정이 사라집니다.
-          </p>
-          <a class="banner-btn-consult" href="#contact">사용 문의하기</a>
-        </section>
+		<main>
+			<div class="main-container">
+				<!-- Main Banner -->
+				<section id="main-banner">
+					<div class="section-title-wrap">
+						<h2 class="section-title">내 매장의 새로운 직원, 오더홉💡</h2>
+						<p>
+							부담없이 테이블 오더를 도입해보세요.<br />
+							직원 급여 고민 · 매장 운영비 걱정이 사라집니다.
+						</p>
+						<a class="banner-btn-consult" href="#contact">사용 문의하기</a>
+					</div>
+				</section>
 
-        <section class="section-1 animated-section">
-          주문과 결제는 OrderHop에 맡기고 조리에만 집중하세요!
-        </section>
+				<!-- section1 -->
+				<section class="section-1 animated-section">
+					<!-- TITLE: 주문과 결제는 OrderHop에 맡기고 조리에만 집중하세요! -->
+					<h2>
+						<picture>
+							<!-- <source
+								media="(max-width: 768px)"
+								srcset="./src/images/Mobile/Mobile/section-1-title.png"
+							/> -->
+							<img
+								class=""
+								src="./src/images/PC/PC/section-1-title.png"
+								alt="주문과 결제는 OrderHop에 맡기고 조리에만 집중하세요!"
+							/>
+					</h2>
 
-        <section class="section-2 animated-section">
-          <div class="max-container">
-            <h2 class="section-title">오더홉은 사장님을 이렇게 도와드려요!</h2>
+					<div class="contents">
+						<div class="contents__left">
+							<img src="./src/images/PC/PC/section-1-left.png" alt="left content" />
+						</div>
+						
+						<div class="contents__right">
+							<img src="./src/images/PC/PC/section-1-right.png" alt="right content" />
+						</div>
+					</div>
+				</section>
 
-            <div class="category">
-              <button class="category__category-btn selected" data-target="0">
-                DID 메뉴 안내
-              </button>
-              <button class="category__category-btn" data-target="1">
-                QR/NFC 주문·결제
-              </button>
-              <button class="category__category-btn" data-target="2">
-                KDS 주문 확인
-              </button>
-              <button class="category__category-btn" data-target="3">
-                셀프 픽업
-              </button>
-              <button class="category__category-btn" data-target="4">
-                로봇 서빙·배달
-              </button>
-            </div>
+				<!-- section2 -->
+				<section class="section-2 animated-section">
+					<div class="max-container">
+						<h2 class="section-title">오더홉은 사장님을 이렇게 도와드려요!</h2>
 
-            <div class="image-slider-container">
-              <div class="image-slider">
-                <img
-                  class="image-slide active"
-                  src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg"
-                />
-                <img
-                  class="image-slide"
-                  src="https://www.shutterstock.com/image-photo/crimsonred-clouds-after-sunset-on-260nw-2305338435.jpg"
-                />
-                <img
-                  class="image-slide"
-                  src="https://www.shutterstock.com/image-photo/crimsonred-clouds-after-sunset-on-260nw-2305338435.jpg"
-                />
-                <img
-                  class="image-slide"
-                  src="https://www.shutterstock.com/image-photo/crimsonred-clouds-after-sunset-on-260nw-2305338435.jpg"
-                />
-                <img
-                  class="image-slide"
-                  src="https://www.shutterstock.com/image-photo/crimsonred-clouds-after-sunset-on-260nw-2305338435.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+						<div class="category">
+							<button class="category__category-btn selected" data-target="0">
+								DID 메뉴 안내
+							</button>
+							<button class="category__category-btn" data-target="1">
+								QR/NFC 주문·결제
+							</button>
+							<button class="category__category-btn" data-target="2">
+								KDS 주문 확인
+							</button>
+							<button class="category__category-btn" data-target="3">
+								셀프 픽업
+							</button>
+							<button class="category__category-btn" data-target="4">
+								로봇 서빙·배달
+							</button>
+						</div>
 
-        <section class="section-3 animated-section">
-          <div class="max-container guide-slide-container">
-            <div class="left-content-wrap">
-              <h2>
-                오직 오더홉에서만!<br />
-                평생동안<br />
-                <span>ZERO! ZERO! ZERO!</span>
-              </h2>
+						<div class="image-slider-container">
+							<div class="image-slider">
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="https://picsum.photos/328/219?random=1"
+									/>
+									<img
+										class="image-slide"
+										src="./src/images/PC/PC/helpful_pc/DID_menu.png"
+									/>
+								</picture>
 
-              <img src="" alt="finger image" />
-            </div>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="https://picsum.photos/328/219?random=2"
+									/>
+									<img
+										class="image-slide"
+										src="./src/images/PC/PC/helpful_pc/qr_nfc_pay.png"
+									/>
+								</picture>
 
-            <div class="guide-slide">
-              <div class="guide-slide__card"></div>
-            </div>
-          </div>
-        </section>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="https://picsum.photos/328/219?random=3"
+									/>
+									<img
+										class="image-slide"
+										src="./src/images/PC/PC/helpful_pc/KDS.png"
+									/>
+								</picture>
 
-        <section class="seciton-4 animated-section">
-          <h3>직접 체험해보세요</h3>
-          <p>카메라를 켜고 QR을 인식하면 오더홉을 체험해 볼 수 있어요</p>
-        </section>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="https://picsum.photos/328/219?random=4"
+									/>
+									<img
+										class="image-slide"
+										src="./src/images/PC/PC/helpful_pc/self_pickup.png"
+									/>
+								</picture>
 
-        <!-- 사장님의 Hope을 현실로 만드는 Order Hop! -->
-        <section class="seciton-5 animated-section"></section>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="https://picsum.photos/328/219?random=5"
+									/>
+									<img
+										class="image-slide active"
+										src="./src/images/PC/PC/helpful_pc/robot_delivery.png"
+									/>
+								</picture>
+							</div>
+						</div>
+					</div>
+				</section>
 
-        <!-- 사장님의 오더홉을 선택해야만 하는 이유! -->
-        <section class="seciton-6 animated-section"></section>
+				<section class="section-3 animated-section">
+					<div class="max-container guide-slide-container">
 
-        <!-- 커스터마이징이 가능한 QR/NFC 제작 타입을 선택할 수 있어요. -->
-        <section class="seciton-7 animated-section"></section>
+						<div class="left-content-wrap">
+							<h2>
+								오직 오더홉에서만!<br />
+								평생동안<br />
+								<span>ZERO! ZERO! ZERO!</span>
 
-        <!-- 업종, 규모, 매장 환경에 맞는 가장 적합한 구성을 추천 해드릴게요. -->
-        <section class="seciton-8 animated-section"></section>
+								<img src="./src/images/PC/PC/onlyinorderhop/okay.png" alt="finger image" />
+							</h2>
 
-        <!-- 오더홉 솔루션으로 내 매장을 자동화 해보세요. -->
-        <section class="seciton-9 animated-section"></section>
+						</div>
 
-        <!-- 오더홉과 함께하는 매장들의 목소리 -->
-        <section class="seciton-10 animated-section"></section>
+						<div class="guide-slide">
+							<div class="guide-slide__card" style="z-index: 1;">
+								<img src="./src/images/PC/PC/onlyinorderhop/Group 12319.png"  alt="" />
+							</div>
+							<div class="guide-slide__card" style="z-index: 2;">
+								<img src="./src/images/PC/PC/onlyinorderhop/Group 12320.png" alt="" />
+							</div>
+							<div class="guide-slide__card" style="z-index: 3;">
+								<img src="./src/images/PC/PC/onlyinorderhop/Group 12321.png" alt="" />
+							</div>
+						</div>
+					</div>
+				</section>
 
-        <!-- 오더홉에서 제안하는 다양한 이벤트 마케팅을 활용하세요! -->
-        <section class="seciton-11 animated-section"></section>
+				<section class="section-4 animated-section">
+					<!-- <h3>직접 체험해 보세요</h3>
+					<p>카메라를 켜고 QR을 인식하면 오더홈을 체험해 볼 수 있어요</p>
 
-        <!-- 오더홉 도입 문의 -->
-        <section id="contact" class="seciton-11 animated-section">
-          contact
-        </section>
+					<div class="qr_wrap">
+						<a href="">
+							<img src="https://picsum.photos/332/345?random=1" alt="후불결제" />
+						</a>
+						<a href="">
+							<img src="https://picsum.photos/332/345?random=2" alt="선불결제" />
+						</a>
+					</div> -->
 
-        <!-- 유한회사 프리디소프트 -->
-        <footer></footer>
-      </div>
-    </main>
+					<picture>
+						<source
+							media="(max-width: 768px)"
+							srcset="./src/images/PC/PC/demo_qrs/demo_qrs_mobile.png"
+						/>
+						<img
+							src="./src/images/PC/PC/demo_qrs/demo_qrs_pc.png"
+						/>
+					</picture>
+				</section>
 
-    <footer></footer>
-  </body>
+				<!-- 사장님의 Hope을 현실로 만드는 Order Hop! -->
+				<section class="section-5 animated-section">
+						<picture>
+							<source
+										media="(max-width: 768px)"
+										srcset="./src/images/Mobile/Mobile/img2.png"
+									/>
+									<img src="./src/images/PC/PC/img2.png" alt="사장님의 Hope을 현실로 만드는 OrderHop!" />
+						</picture>
+				</section>
+
+				<!-- 사장님의 오더홉을 선택해야만 하는 이유! -->
+				<section class="section-6 animated-section">
+					<div class="max-container">
+						<h2>사장님이 <span class="text-primary-color">오더홉</span>을 선택해야만 하는 이유!</h2>
+						
+						<!-- tables -->
+						<div class="table-wrap">
+							<div class="first-tab">
+								<button>왜 오더홉이여야 할까요? <span>위 화살표</span></button>
+								<div>table1</div>
+							</div>
+
+							<div class="second-tab">
+								<button>오더홉의 최저가 제안 <span>위 화살표</span></button>
+								<div>table2</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 커스터마이징이 가능한 QR/NFC 제작 타입을 선택할 수 있어요. -->
+				<section class="section-7 animated-section"></section>
+
+				<!-- 업종, 규모, 매장 환경에 맞는 가장 적합한 구성을 추천 해드릴게요. -->
+				<section class="section-8 animated-section"></section>
+
+				<!-- 오더홉 솔루션으로 내 매장을 자동화 해보세요. -->
+				<section class="section-9 animated-section"></section>
+
+				<!-- 오더홉과 함께하는 매장들의 목소리 -->
+				<section class="section-10 animated-section"></section>
+
+				<!-- 오더홉에서 제안하는 다양한 이벤트 마케팅을 활용하세요! -->
+				<section class="section-11 animated-section"></section>
+
+				<!-- 오더홉 도입 문의 -->
+				<section id="contact" class="section-11 animated-section">
+					contact
+				</section>
+
+				<!-- 유한회사 프리디소프트 -->
+				<footer></footer>
+			</div>
+		</main>
+
+		<footer></footer>
+	</body>
 </html>
