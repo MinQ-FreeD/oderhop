@@ -48,3 +48,34 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 		}
 	});
 });
+
+// section-7 carousel
+
+// let currentIndex = 0; // 현재 인덱스
+// const cards = document.querySelectorAll(".carousel__card");
+// const totalCards = cards.length;
+
+// function updateCarousel() {
+// 	const offset = -currentIndex * 100; // 카드의 너비에 따라 조정
+// 	document.querySelector(
+// 		".carousel"
+// 	).style.transform = `translateX(${offset}%)`;
+
+// 	// 카드의 active 클래스를 조정
+// 	cards.forEach((card, index) => {
+// 		card.classList.toggle("active", index === currentIndex);
+// 	});
+// }
+
+// document.getElementById("carousel-next").addEventListener("click", () => {
+// 	currentIndex = (currentIndex + 1) % totalCards; // 다음 카드로 이동
+// 	updateCarousel();
+// });
+
+// document.getElementById("carousel-prev").addEventListener("click", () => {
+// 	currentIndex = (currentIndex - 1 + totalCards) % totalCards; // 이전 카드로 이동
+// 	updateCarousel();
+// });
+
+// // 초기화
+// updateCarousel();

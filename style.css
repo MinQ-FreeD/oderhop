@@ -21,6 +21,7 @@
 	/* section background */
 	--section-bg-white: #fff;
 	--section-bg: #f9fafb;
+	--section-bg2: #3d3d3d;
 
 	/* font */
 	/* font color */
@@ -495,7 +496,7 @@ h2,
 
 /* section-4 */
 .section-4 {
-	background-color: #3d3d3d;
+	background-color: var(--section-bg2);
 	color: var(--text-color-white);
 }
 
@@ -606,6 +607,84 @@ h2,
 }
 
 .tables-wrap .arrow:active {
+}
+
+/* section-7 커스터마이징 */
+.section-7 {
+	width: 100%;
+	background-color: var(--section-bg2);
+}
+
+.section-7__container {
+	width: 100%;
+	padding-bottom: 7.823rem; /* 125px */
+}
+
+.section-7__container h2 {
+	font-size: var(--text-h2-size);
+	padding: 8.125rem 0 5.625rem 0; /* 130px 90px*/
+	line-height: 5rem;
+	color: var(--text-color-white);
+}
+
+.section-7__container .carousel-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+/* buttons */
+.carousel-container .carousel-buttons {
+}
+
+.carousel-buttons > p {
+}
+
+.carousel-buttons .buttons-wrap {
+}
+
+#carousel-prev {
+}
+
+#carousel-count {
+}
+
+#carousel-next {
+}
+
+/* carousel */
+.carousel-wrap {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.carousel {
+	display: flex;
+	width: 100%;
+	transition: transform 0.3s ease;
+	will-change: transform; /* 성능 최적화를 위한 설정 */
+
+	gap: 3.75rem; /* 60px */
+}
+
+.carousel__card {
+	flex: 0 0 auto;
+	/* 455px */
+	width: 23.438rem;
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+.carousel__card.active {
+	opacity: 1; /* 활성화된 카드는 선명하게 */
+}
+
+.carousel__card picture {
+}
+
+.carousel__card picture img {
 }
 
 @media (max-width: 1200px) {
