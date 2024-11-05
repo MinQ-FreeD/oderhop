@@ -98,6 +98,12 @@ a {
 	color: var(--text-color);
 }
 
+picture {
+	display: block;
+	width: 100%;
+	font-size: 0;
+}
+
 img {
 	width: 100%;
 }
@@ -299,9 +305,7 @@ h2,
 }
 
 .section-1 h2 picture {
-	display: block;
 	width: 62.25rem; /* 996px */
-
 	height: 10.125rem; /* 162px */
 }
 
@@ -399,7 +403,6 @@ h2,
 }
 
 .section-2 .image-slider-container .image-slider picture {
-	display: block;
 	width: 100%;
 	/* 슬라이드가 화면에 꽉 차도록 설정 */
 	min-width: 100%;
@@ -527,7 +530,6 @@ h2,
 }
 /*  */
 .section-4 picture {
-	display: block;
 	width: 100%;
 }
 
@@ -544,6 +546,66 @@ h2,
 }
 
 .section-5 picture img {
+}
+
+/* section6 */
+.section-6 {
+}
+
+.section-6 h2 {
+	padding: 5.625rem 0 5rem 0;
+}
+
+.section-6 .tables-wrap {
+	width: 100%;
+}
+
+.tables-wrap .table {
+	width: 100%;
+}
+
+.table .table-toggle-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	padding: 3.5rem 0;
+
+	font-size: 2.5rem; /* 40px */
+}
+
+.table .table1 {
+	/* padding-bottom: 3rem; */
+}
+
+.table .table1,
+.table2 {
+	/* margin-top: 3rem; */
+	/* display: none; */
+	max-height: 0; /* 초기 max-height를 0으로 설정 */
+	opacity: 0; /* 초기 opacity를 0으로 설정 */
+	overflow: hidden; /* 내용이 넘치지 않도록 숨김 */
+	transition: all 0.5s ease, opacity 0.5s ease; /* 전환 효과 추가 */
+}
+
+.table .table-toggle-btn {
+	border-bottom: 1px solid #dbdbdb;
+	cursor: pointer;
+}
+
+.tables-wrap .arrow {
+	display: inline-block;
+	width: 18px;
+	height: 33px;
+	background: url("./src/images/PC/PC/icons/table-arrow.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: transform 150ms ease-in;
+}
+
+.tables-wrap .arrow:active {
 }
 
 @media (max-width: 1200px) {
@@ -622,7 +684,7 @@ h2,
 
 	.section-2 .image-slider-container {
 		/* 328px */
-		width: 20.5rem;
+		max-width: 20.5rem;
 		max-height: 13.688rem; /* 219px */
 	}
 
