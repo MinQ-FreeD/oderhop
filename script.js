@@ -25,6 +25,7 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 		const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택
 		const arrow = btn.querySelector(".arrow"); // 화살표 선택
 		const isTable1 = table.classList.contains("table1");
+		// const isTable2 = table.classList.contains("table2");
 
 		// 테이블의 표시 상태를 토글
 		if (table.style.maxHeight) {
@@ -36,6 +37,9 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 			if (isTable1) {
 				table.parentElement.style.paddingBottom = "0";
 			}
+			// if (isTable2) {
+			// 	table.parentElement.style.paddingBottom = "0";
+			// }
 		} else {
 			table.style.maxHeight = table.scrollHeight + "px"; // 콘텐츠의 높이로 설정
 			table.style.opacity = 1; // opacity를 1로 설정
@@ -45,37 +49,115 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 			if (isTable1) {
 				table.parentElement.style.paddingBottom = "3rem";
 			}
+			// if (isTable2) {
+			// 	table.parentElement.style.paddingBottom = "5.375rem";
+			// }
 		}
 	});
 });
 
 // section-7 carousel
+const carousel = document.querySelector(".infinite-carousel");
+const carouselItems = document.querySelectorAll(".infinite-carousel-item");
+const prevButton = document.getElementById("carousel-prev");
+const nextButton = document.getElementById("carousel-next");
+const gap = 60; /* item 마다의 간격 */
 
-// let currentIndex = 0; // 현재 인덱스
-// const cards = document.querySelectorAll(".carousel__card");
-// const totalCards = cards.length;
+const TOTAL_ITEMS = 6;
+const currentIndexElement = document.getElementById("carousel-count"); // currentIndex 값을 표시할 HTML 요소
 
-// function updateCarousel() {
-// 	const offset = -currentIndex * 100; // 카드의 너비에 따라 조정
-// 	document.querySelector(
-// 		".carousel"
-// 	).style.transform = `translateX(${offset}%)`;
+let currentIndex = 1; // 1번 요소부터 시작
 
-// 	// 카드의 active 클래스를 조정
-// 	cards.forEach((card, index) => {
-// 		card.classList.toggle("active", index === currentIndex);
-// 	});
-// }
+const itemWidths = Array.from(carouselItems).map((item) => item.offsetWidth);
 
-// document.getElementById("carousel-next").addEventListener("click", () => {
-// 	currentIndex = (currentIndex + 1) % totalCards; // 다음 카드로 이동
-// 	updateCarousel();
-// });
+const getItemWidths = () => {
+	return Array.from(carouselItems).map((item) => item.offsetWidth);
+};
 
-// document.getElementById("carousel-prev").addEventListener("click", () => {
-// 	currentIndex = (currentIndex - 1 + totalCards) % totalCards; // 이전 카드로 이동
-// 	updateCarousel();
-// });
+// 이동하는 위치 계산 함수
+const updatePosition = () => {
+	const itemWidths = getItemWidths(); // 실시간 너비 계산
+	let totalWidth = 0;
+	for (let i = 0; i < currentIndex; i++) {
+		totalWidth += itemWidths[i] + gap; /* gap 여백 추가 */
+	}
 
-// // 초기화
-// updateCarousel();
+	carouselItems.forEach((item, index) => {
+		if (index === currentIndex) {
+			item.style.opacity = "1"; // currentIndex 아이템은 opacity 1
+		} else {
+			item.style.opacity = "0.5"; // 나머지 아이템은 opacity 0.5
+		}
+	});
+
+	carousel.style.transform = `translateX(-${totalWidth}px)`;
+};
+
+// currentIndex를 화면에 업데이트하는 함수
+const updateCurrentIndexDisplay = () => {
+	// Transition을 잠시 비활성화
+	currentIndexElement.style.transition = "none";
+	currentIndexElement.textContent = `${currentIndex} / ${TOTAL_ITEMS}`;
+};
+
+updatePosition();
+
+// transition이 끝난 후 이벤트
+carousel.addEventListener("transitionend", () => {
+	// 마지막 슬라이드에서 첫 번째 슬라이드로 부드럽게 이동
+	if (currentIndex === carouselItems.length - 1) {
+		carousel.style.transition = "none";
+		currentIndex = 1;
+		updatePosition();
+
+		setTimeout(() => {
+			carousel.style.transition = "all 0.7s ease";
+		});
+	}
+	// 첫 번째 슬라이드에서 마지막 슬라이드로 부드럽게 이동
+	else if (currentIndex === 0) {
+		carousel.style.transition = "none";
+		currentIndex = carouselItems.length - 2;
+		updatePosition();
+
+		setTimeout(() => {
+			carousel.style.transition = "all 0.7s ease";
+		});
+	}
+
+	updateCurrentIndexDisplay();
+});
+
+// next 버튼 클릭 이벤트
+nextButton.addEventListener("click", () => {
+	if (currentIndex < carouselItems.length - 1) {
+		updateCurrentIndexDisplay();
+		currentIndex++;
+		updatePosition();
+	}
+});
+
+// prev 버튼 클릭 이벤트
+prevButton.addEventListener("click", () => {
+	if (currentIndex > 0) {
+		updateCurrentIndexDisplay();
+		currentIndex--;
+		updatePosition();
+	}
+});
+
+// section-10
+const brandCarousel = document.querySelector(".brand-carousel");
+
+// 복제
+const clone = brandCarousel.cloneNode(true);
+
+// 복제본 추가
+document.querySelector(".brand-carousel-container").appendChild(clone);
+
+// 원본, 복제본 위치 지정
+document.querySelector(".brand-carousel-container").offsetWidth + "px";
+
+// 클래스 할당
+brandCarousel.classList.add("original");
+clone.classList.add("clone");
