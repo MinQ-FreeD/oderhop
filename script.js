@@ -1,4 +1,41 @@
-// section-2 image slider container
+// * [상담하기, 사용문의하기], [데모 체험하기] 버튼 클릭 시 스크롤 이동
+// 헤더 높이 가져오기
+// 헤더 높이 가져오기
+const header = document.querySelector("header");
+const headerHeight = header.offsetHeight;
+
+// 공통된 스크롤 함수 정의
+function smoothScrollWithOffset(buttonSelector, targetSelector, offset) {
+	document.querySelectorAll(buttonSelector).forEach((button) => {
+		button.addEventListener("click", function (e) {
+			e.preventDefault(); // 기본 앵커 동작 막기
+
+			// 버튼의 href 속성으로 이동할 요소 결정 (직접 지정된 경우 `targetSelector` 사용)
+			const targetId = targetSelector || this.getAttribute("href");
+			const targetElement = document.querySelector(targetId);
+
+			if (targetElement) {
+				const offsetTop =
+					targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+				window.scrollTo({
+					top: offsetTop,
+					behavior: "smooth", // 부드러운 스크롤
+				});
+			}
+		});
+	});
+}
+
+// 버튼들에 스크롤 기능 추가
+smoothScrollWithOffset(
+	".nav-btn-consult, .banner-btn-consult",
+	"#contact",
+	headerHeight
+);
+smoothScrollWithOffset(".nav-btn-demo", ".section-4", headerHeight);
+
+// * section-2 image slider container
 const categoryButtons = document.querySelectorAll(".category__category-btn");
 const imageSlider = document.querySelector(".image-slider");
 const imageSlides = document.querySelectorAll(".image-slide");
@@ -19,7 +56,7 @@ categoryButtons.forEach((button) => {
 	});
 });
 
-// section-6 tables toggle
+// * section-6 tables toggle
 document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 	btn.addEventListener("click", () => {
 		const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택
@@ -56,7 +93,7 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 	});
 });
 
-// section-7 carousel
+// * section-7 carousel
 const carousel = document.querySelector(".infinite-carousel");
 const carouselItems = document.querySelectorAll(".infinite-carousel-item");
 const prevButton = document.getElementById("carousel-prev");
@@ -146,7 +183,7 @@ prevButton.addEventListener("click", () => {
 	}
 });
 
-// section-10
+// * section-10
 const brandCarousel = document.querySelector(".brand-carousel");
 
 // 복제
