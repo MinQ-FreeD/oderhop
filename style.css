@@ -433,10 +433,6 @@ h2,
 	flex: 1; /* 두 요소가 동일한 너비를 가지도록 설정 */
 }
 
-.guide-slide {
-	align-items: flex-end;
-}
-
 /* left content */
 .left-content-wrap {
 	position: relative;
@@ -445,12 +441,18 @@ h2,
 	padding-top: 4.25rem; /* 68px */
 }
 
+/* 우측 */
+.guide-slide {
+	align-items: flex-end;
+	/* padding-bottom: 950px; sticky를 위한 임의의 여분 값 */
+}
+
 .left-content-wrap h2 {
 	color: var(--text-color);
 	line-height: 5rem; /* 80px */
 
 	position: sticky;
-	top: 12%;
+	top: 14%;
 }
 
 .left-content-wrap h2 span {
@@ -467,6 +469,23 @@ h2,
 	transform: rotate(-8.79deg);
 }
 
+/* floating-animation-image */
+.floating-animation-image {
+	animation: diagonalFloating 4s ease-in-out infinite;
+}
+
+@keyframes diagonalFloating {
+	0% {
+		transform: translate(-4px, -14px); /* 시작 위치: 좌측 상단 */
+	}
+	50% {
+		transform: translate(4px, 14px); /* 중앙 위치로 이동: 우측 하단 */
+	}
+	100% {
+		transform: translate(-4px, -14px); /* 원래 위치로 돌아옴: 좌측 상단 */
+	}
+}
+
 /* right content */
 .guide-slide {
 	position: relative;
@@ -477,7 +496,7 @@ h2,
 
 .guide-slide__card {
 	position: sticky;
-	top: 12%;
+	top: 14%;
 
 	font-size: 0;
 
