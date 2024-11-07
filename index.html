@@ -643,21 +643,97 @@
 							</p>
 						</div>
 
-						<div class="section-12__form">
-							<label>지역 <span>(선택)</span></label>
-							<input
-								type="text"
-								placeholder="매장을 운영하는 지역(또는 창업 예정 지역)을 알려주세요."
-							/>
+						<div class="form-container">
+							<form id="inquiryForm">
+								<!-- 지역 선택 -->
+								<div class="form-group">
+									<label for="region"
+										>지역 <span class="label-optional">(선택)</span></label
+									>
+									<input
+										type="text"
+										id="region"
+										name="region"
+										placeholder="매장을 운영하는 지역(또는 창업 예정 지역)을 알려주세요."
+									/>
+								</div>
+
+								<!-- 업종 선택 -->
+								<div class="form-group">
+									<label for="industry"
+										>업종 <span class="label-optional">(선택)</span></label
+									>
+									<input
+										type="text"
+										id="industry"
+										name="industry"
+										placeholder="어떤 업종인지 알려주세요. (ex. 카페, 이자카야 등)"
+									/>
+								</div>
+
+								<!-- 전화번호 (필수) -->
+								<div class="form-group">
+									<label for="phone"
+										>전화번호 <span class="label-required">*</span></label
+									>
+									<input
+										type="tel"
+										id="phone"
+										name="phone"
+										placeholder="전화번호를 입력해 주세요."
+										required
+									/>
+								</div>
+
+								<!-- 필수 체크박스 -->
+								<div class="form-group checkbox">
+									<input
+										type="checkbox"
+										id="agreement"
+										name="agreement"
+										required
+									/>
+									<label for="agreement"
+										>[필수] 개인(신용)정보 수집・이용에 동의합니다. 상담 외 다른
+										목적으로 사용되지 않습니다.</label
+									>
+								</div>
+
+								<!-- 문의하기 버튼 -->
+								<button type="submit" class="submit-button">문의하기</button>
+							</form>
 						</div>
 					</div>
 				</section>
 
 				<!-- 유한회사 프리디소프트 -->
-				<footer></footer>
+				<footer>
+					<div class="max-container">
+						<div class="company-info">
+							<h3>유한회사 프리디소프트</h3>
+							<p class="company-representative">
+								<span>상호: &nbsp;유한회사 프리디 소프트</span>
+								<span>대표: &nbsp;이민규</span>
+							</p>
+							<p>사업자등록번호: &nbsp;590-88-00990</p>
+							<p>통신판매업신고: &nbsp;2021-서울강남-04368호</p>
+							<p>
+								주소: &nbsp;(06130)서울 강남구 테헤란로7길 22, 9층 914호
+								(역삼동, 한국과학기술회관2관)
+							</p>
+						</div>
+
+						<div class="business-info">
+							<h3>오더홉 상담문의</h3>
+							<h4>070-1234-5678</h4>
+							<p>평일: &nbsp;10:00 - 18:00</p>
+							<p>점심시간: &nbsp;12:00 - 13:00</p>
+							<p>주말 및 공휴일 후무</p>
+							<p>email: &nbsp;support@freedgrouptech.co.kr</p>
+						</div>
+					</div>
+				</footer>
 			</div>
 		</main>
-
-		<footer></footer>
 	</body>
 </html>

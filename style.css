@@ -704,6 +704,7 @@ h2,
 	width: 100%;
 	overflow: hidden;
 }
+
 .infinite-carousel {
 	display: flex;
 	align-items: start;
@@ -712,6 +713,7 @@ h2,
 
 	gap: 60px; /* js와 동일해야함 */
 }
+
 .infinite-carousel-item {
 	/* min-width: 455px; */
 	height: auto; /**/
@@ -889,7 +891,12 @@ h2,
 	padding: 5.625rem 0;
 }
 
+.section-12 > .max-container {
+	display: flex;
+}
+
 .section-12__title {
+	flex: 1;
 	text-align: left;
 }
 
@@ -913,7 +920,148 @@ h2,
 	font-weight: 700;
 }
 
-.section-12__form {
+/* form */
+.form-container {
+	flex: 1;
+	text-align: left;
+	/* 32px 40px; */
+	padding: 2rem 2.5rem;
+}
+
+#inquiryForm {
+}
+
+.form-group {
+}
+
+.form-group label {
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.form-group label .label-optional {
+	color: #8f8f8f;
+}
+
+.form-group label .label-required {
+	color: red;
+}
+
+.form-group input {
+	display: block;
+	width: 100%;
+	padding: 0.875rem 1rem;
+	margin: 0.75rem 0 1.5rem 0;
+	border: 1px solid #e6e6e6;
+	border-radius: 8px;
+	outline: none;
+	font-size: 1rem;
+	color: var(--text-color);
+	font-weight: 300;
+}
+
+.form-group input::placeholder {
+	/* font color */
+}
+
+.form-group.checkbox {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+#agreement {
+	display: inline-block;
+	border-radius: 5px;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+#agreement:checked {
+	accent-color: var(--primary-color);
+}
+
+label[for="agreement"] {
+	font-size: 1rem;
+	font-weight: 300;
+	color: #5c5c5c;
+}
+
+#inquiryForm .submit-button {
+	appearance: none;
+	background-color: var(--button-bg-solid-color);
+	width: 100%;
+
+	font-size: 1.188rem;
+	color: var(--button-text-solid-color);
+
+	border: none;
+	/* 22px 40px */
+	padding: 1.375rem 2.5rem;
+	border-radius: var(--button-border-radius);
+}
+
+/* footer */
+footer {
+	width: 100%;
+	background-color: var(--section-bg2);
+	/* 100px */
+	padding: 6.25rem 0;
+}
+
+footer .max-container {
+	display: flex;
+	/* 212px */
+	gap: 13.25rem;
+	color: var(--text-color-white);
+}
+
+footer h3 {
+	margin-bottom: 2rem;
+}
+
+/* left */
+.company-info {
+	text-align: left;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.company-info p {
+	margin-bottom: 1.5rem;
+}
+
+.company-representative {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.company-representative span {
+	display: inline-block;
+}
+
+.company-info p {
+	font-weight: 300;
+}
+
+/* right */
+.business-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.business-info h4 {
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+}
+
+.business-info p {
+	font-weight: 300;
+	margin-bottom: 1.5rem;
 }
 
 /* media query */
