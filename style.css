@@ -572,17 +572,29 @@ h2,
 }
 
 .table .table1 {
-	/* padding-bottom: 3rem; */
-}
-
-.table .table1,
-.table2 {
-	/* margin-top: 3rem; */
-	/* display: none; */
 	max-height: 0; /* 초기 max-height를 0으로 설정 */
 	opacity: 0; /* 초기 opacity를 0으로 설정 */
 	overflow: hidden; /* 내용이 넘치지 않도록 숨김 */
 	transition: all 0.5s ease, opacity 0.5s ease; /* 전환 효과 추가 */
+}
+
+.table .table2 {
+	max-height: 0; /* 초기 max-height를 0으로 설정 */
+	opacity: 0; /* 초기 opacity를 0으로 설정 */
+	overflow: hidden; /* 내용이 넘치지 않도록 숨김 */
+	transition: all 0.5s ease, opacity 0.5s ease; /* 전환 효과 추가 */
+}
+
+.table .table1.open {
+	max-height: 5000px; /* 충분히 큰 값으로 설정 */
+	opacity: 1; /* opacity 1로 설정하여 나타나게 함 */
+	margin-top: 3rem; /* default when open */
+	padding-bottom: 3rem; /* default when open */
+}
+
+.table .table2.open {
+	max-height: 5000px; /* 충분히 큰 값으로 설정 */
+	opacity: 1; /* opacity 1로 설정하여 나타나게 함 */
 }
 
 .table .table-toggle-btn {
@@ -599,6 +611,10 @@ h2,
 	background-repeat: no-repeat;
 	background-size: contain;
 	transition: transform 150ms ease-in;
+}
+
+.tables-wrap .arrow.initial {
+	transform: rotate(180deg); /* table1의 화살표는 처음에 아래로 회전한 상태 */
 }
 
 .tables-wrap .arrow:active {

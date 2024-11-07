@@ -58,37 +58,25 @@ categoryButtons.forEach((button) => {
 
 // * section-6 tables toggle
 document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
-	btn.addEventListener("click", () => {
-		const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택
-		const arrow = btn.querySelector(".arrow"); // 화살표 선택
-		const isTable1 = table.classList.contains("table1");
-		// const isTable2 = table.classList.contains("table2");
+	const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택
+	const arrow = btn.querySelector(".arrow"); // 화살표 선택
+	const isTable1 = table.classList.contains("table1");
 
+	// table1은 처음에 열린 상태로 설정
+	if (isTable1) {
+		arrow.classList.add("initial"); // table1의 화살표를 반대로 설정
+	}
+
+	btn.addEventListener("click", () => {
 		// 테이블의 표시 상태를 토글
-		if (table.style.maxHeight) {
-			table.style.maxHeight = null; // 최대 높이를 초기화
-			table.style.opacity = 0; // opacity를 0으로 설정
+		if (table.classList.contains("open")) {
+			table.classList.remove("open"); // 'open' 클래스 제거
 			arrow.style.transform = "rotate(0deg)"; // 화살표 원래 방향으로
 			table.style.marginTop = 0;
-
-			if (isTable1) {
-				table.parentElement.style.paddingBottom = "0";
-			}
-			// if (isTable2) {
-			// 	table.parentElement.style.paddingBottom = "0";
-			// }
 		} else {
-			table.style.maxHeight = table.scrollHeight + "px"; // 콘텐츠의 높이로 설정
-			table.style.opacity = 1; // opacity를 1로 설정
+			table.classList.add("open"); // 'open' 클래스 추가
 			arrow.style.transform = "rotate(180deg)"; // 화살표 아래로
 			table.style.marginTop = "3rem";
-
-			if (isTable1) {
-				table.parentElement.style.paddingBottom = "3rem";
-			}
-			// if (isTable2) {
-			// 	table.parentElement.style.paddingBottom = "5.375rem";
-			// }
 		}
 	});
 });
