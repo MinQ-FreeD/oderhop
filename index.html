@@ -15,7 +15,9 @@
 	<body>
 		<header>
 			<div class="max-container">
-				<img id="logo" src="./src/images/PC/PC/logo.png" alt="logo" />
+				<a href="">
+					<img id="logo" src="./src/images/PC/PC/logo.png" alt="logo" />
+				</a>
 				<nav>
 					<ul>
 						<li><a class="nav-btn-consult" href="#contact">상담하기</a></li>
@@ -44,10 +46,6 @@
 					<!-- TITLE: 주문과 결제는 OrderHop에 맡기고 조리에만 집중하세요! -->
 					<h2>
 						<picture>
-							<source
-								media="(max-width: 768px)"
-								srcset="./src/images/Mobile/Mobile/section-1-title.png"
-							/>
 							<img
 								class=""
 								src="./src/images/PC/PC/section-1-title.png"
@@ -101,7 +99,9 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="https://picsum.photos/328/219?random=1"
+										srcset="
+											./src/images/Mobile/Mobile/helpful_mobile/DID_menu.png
+										"
 									/>
 									<img
 										class="image-slide"
@@ -112,7 +112,9 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="https://picsum.photos/328/219?random=2"
+										srcset="
+											./src/images/Mobile/Mobile/helpful_mobile/qr_nfc_pay.png
+										"
 									/>
 									<img
 										class="image-slide"
@@ -123,7 +125,7 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="https://picsum.photos/328/219?random=3"
+										srcset="./src/images/Mobile/Mobile/helpful_mobile/KDS.png"
 									/>
 									<img
 										class="image-slide"
@@ -134,7 +136,9 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="https://picsum.photos/328/219?random=4"
+										srcset="
+											./src/images/Mobile/Mobile/helpful_mobile/self_pickup.png
+										"
 									/>
 									<img
 										class="image-slide"
@@ -145,7 +149,9 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="https://picsum.photos/328/219?random=5"
+										srcset="
+											./src/images/Mobile/Mobile/helpful_mobile/robot_delivery.png
+										"
 									/>
 									<img
 										class="image-slide active"
@@ -166,7 +172,7 @@
 								<span>ZERO! ZERO! ZERO!</span>
 
 								<img
-									class="floating-animation-image"
+									class="floating-animation-image mobile-animation-off"
 									src="./src/images/PC/PC/onlyinorderhop/okay.png"
 									alt="finger image"
 								/>
@@ -195,6 +201,12 @@
 						</div>
 					</div>
 				</section>
+
+				<img
+					class="floating-animation-image mobile-animation-on"
+					src="./src/images/PC/PC/onlyinorderhop/okay.png"
+					alt="finger image"
+				/>
 
 				<section id="section4" class="section-4">
 					<picture>
@@ -518,9 +530,9 @@
 								활용하세요!
 
 								<img
-									class="floating-animation-image"
+									class="floating-animation-image mobile-animation-off"
 									src="./src/images/PC/PC/marketing/light_bulb.png"
-									alt="finger image"
+									alt="light image"
 								/>
 							</h2>
 						</div>
@@ -588,8 +600,13 @@
 							</div>
 						</div>
 					</div>
-					<!-- /test   -->
 				</section>
+
+				<img
+					class="floating-animation-image mobile-animation-on"
+					src="./src/images/PC/PC/marketing/light_bulb.png"
+					alt="light image"
+				/>
 
 				<!-- 오더홉 도입 문의 -->
 				<section id="contact" class="section-12">
