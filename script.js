@@ -56,6 +56,46 @@ categoryButtons.forEach((button) => {
 	});
 });
 
+// * section-3 sticky slider
+// DOM 요소
+const cards = document.querySelectorAll(".guide-slide__card");
+
+// 스크롤 이벤트 처리
+window.addEventListener("scroll", () => {
+	// 각 카드에 대해 처리
+	cards.forEach((card, index) => {
+		// 각 카드의 top 위치 계산
+		const cardTop = card.getBoundingClientRect().top;
+		const cardHeight = card.getBoundingClientRect().height;
+
+		// 현재 창의 높이
+		const windowHeight = window.innerHeight;
+
+		// 각 카드가 스크롤에 따라 겹칠 때 opacity를 조정
+		if (cardTop < windowHeight && cardTop > -cardHeight) {
+			// 현재 보이는 카드 opacity는 1
+			card.style.opacity = 1;
+
+			// 그 전 카드들에 대해 opacity를 점차적으로 줄여서 0으로 만듦
+			for (let i = 0; i < index; i++) {
+				const currentTop = cards[i].getBoundingClientRect().top;
+				const currentBottom = cards[i].getBoundingClientRect().bottom;
+				const nextCardTop = cards[i + 1].getBoundingClientRect().top;
+
+				// 이전 카드가 50% 진입하면 opacity가 점차 줄어듦
+				if (nextCardTop < currentBottom * 0.9) {
+					// opacity를 점차적으로 줄여 0으로 만듦
+					const opacity = Math.max(
+						0,
+						1 - (currentBottom - nextCardTop) / cardHeight
+					);
+					cards[i].style.opacity = opacity;
+				}
+			}
+		}
+	});
+});
+
 // * section-6 tables toggle
 document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 	const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택
@@ -82,94 +122,63 @@ document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 });
 
 // * section-7 carousel
-const carousel = document.querySelector(".infinite-carousel");
-const carouselItems = document.querySelectorAll(".infinite-carousel-item");
 const prevButton = document.getElementById("carousel-prev");
 const nextButton = document.getElementById("carousel-next");
-const gap = 60; /* item 마다의 간격 */
+const carouselItems = document.querySelectorAll(".infinite-carousel-item");
+const carousel = document.querySelector(".infinite-carousel");
+const indicator = document.getElementById("carousel-count");
 
-const TOTAL_ITEMS = 6;
-const currentIndexElement = document.getElementById("carousel-count"); // currentIndex 값을 표시할 HTML 요소
+let currentIndex = 0;
+const totalItems = carouselItems.length;
 
-let currentIndex = 1; // 1번 요소부터 시작
+// 각 아이템의 크기와 gap을 고려하여 이동
+function updateCarousel() {
+	const gap = 60; // gap 설정
+	let offset = 0;
 
-const itemWidths = Array.from(carouselItems).map((item) => item.offsetWidth);
-
-const getItemWidths = () => {
-	return Array.from(carouselItems).map((item) => item.offsetWidth);
-};
-
-// 이동하는 위치 계산 함수
-const updatePosition = () => {
-	const itemWidths = getItemWidths(); // 실시간 너비 계산
-	let totalWidth = 0;
+	// 이동 값 계산: 각 아이템의 크기 + gap을 고려
 	for (let i = 0; i < currentIndex; i++) {
-		totalWidth += itemWidths[i] + gap; /* gap 여백 추가 */
+		offset += carouselItems[i].offsetWidth + gap;
 	}
 
+	// carousel 이동
+	carousel.style.transform = `translateX(-${offset}px)`;
+
+	// 각 아이템의 opacity 값 업데이트
 	carouselItems.forEach((item, index) => {
 		if (index === currentIndex) {
-			item.style.opacity = "1"; // currentIndex 아이템은 opacity 1
+			item.style.opacity = "1";
 		} else {
-			item.style.opacity = "0.5"; // 나머지 아이템은 opacity 0.5
+			item.style.opacity = "0.5";
 		}
 	});
 
-	carousel.style.transform = `translateX(-${totalWidth}px)`;
-};
+	// indicator 업데이트
+	indicator.textContent = `${currentIndex + 1} / ${totalItems}`;
+}
 
-// currentIndex를 화면에 업데이트하는 함수
-const updateCurrentIndexDisplay = () => {
-	// Transition을 잠시 비활성화
-	currentIndexElement.style.transition = "none";
-	currentIndexElement.textContent = `${currentIndex} / ${TOTAL_ITEMS}`;
-};
-
-updatePosition();
-
-// transition이 끝난 후 이벤트
-carousel.addEventListener("transitionend", () => {
-	// 마지막 슬라이드에서 첫 번째 슬라이드로 부드럽게 이동
-	if (currentIndex === carouselItems.length - 1) {
-		carousel.style.transition = "none";
-		currentIndex = 1;
-		updatePosition();
-
-		setTimeout(() => {
-			carousel.style.transition = "all 0.7s ease";
-		});
-	}
-	// 첫 번째 슬라이드에서 마지막 슬라이드로 부드럽게 이동
-	else if (currentIndex === 0) {
-		carousel.style.transition = "none";
-		currentIndex = carouselItems.length - 2;
-		updatePosition();
-
-		setTimeout(() => {
-			carousel.style.transition = "all 0.7s ease";
-		});
-	}
-
-	updateCurrentIndexDisplay();
-});
-
-// next 버튼 클릭 이벤트
+// next 버튼 클릭 시
 nextButton.addEventListener("click", () => {
-	if (currentIndex < carouselItems.length - 1) {
-		updateCurrentIndexDisplay();
+	if (currentIndex < totalItems - 1) {
 		currentIndex++;
-		updatePosition();
+	} else {
+		currentIndex = 0; // 마지막 아이템에서 처음으로 돌아감
 	}
+	updateCarousel();
 });
 
-// prev 버튼 클릭 이벤트
+// prev 버튼 클릭 시
 prevButton.addEventListener("click", () => {
 	if (currentIndex > 0) {
-		updateCurrentIndexDisplay();
 		currentIndex--;
-		updatePosition();
+	} else {
+		currentIndex = totalItems - 1; // 첫 번째 아이템에서 마지막 아이템으로 돌아감
 	}
+	updateCarousel();
 });
+
+// 초기 상태 업데이트
+updateCarousel();
 
 // * section-10
 const brandCarousel = document.querySelector(".brand-carousel");

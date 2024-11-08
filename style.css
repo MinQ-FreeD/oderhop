@@ -856,10 +856,10 @@ h2,
 	z-index: 0; /* 그라디언트 위에 표시되도록 */
 }
 .brand-carousel-container .brand-carousel.original {
-	animation: 30s linear 0s infinite normal forwards running slide01;
+	animation: 50s linear 0s infinite normal forwards running slide01;
 }
 .brand-carousel-container .brand-carousel.clone {
-	animation: 30s linear 0s infinite normal none running slide02;
+	animation: 50s linear 0s infinite normal none running slide02;
 }
 .brand-carousel-container .brand-carousel li {
 	width: 200px; /* 그라디언트 너비값 고려 */
