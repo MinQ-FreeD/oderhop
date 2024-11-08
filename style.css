@@ -511,6 +511,7 @@ h2,
 	min-height: 21.313rem; /* 341px */
 
 	border-radius: 32px;
+	will-change: opacity;
 }
 
 .guide-slide__card img {
@@ -1246,6 +1247,11 @@ footer h3 {
 	}
 
 	/* section-3 & section-11 */
+	.section-3,
+	.section-11 {
+		height: 100%;
+	}
+
 	.guide-slide-container {
 		flex-direction: column;
 	}
@@ -1254,7 +1260,8 @@ footer h3 {
 		text-align: center;
 		position: sticky;
 		top: 4.25rem;
-		height: max-content !important;
+
+		padding-top: 64px;
 	}
 
 	.left-content-wrap h2 {
@@ -1279,7 +1286,7 @@ footer h3 {
 	}
 
 	.guide-slide__card {
-		top: calc(14% + 64px + 48px);
+		top: calc(14% + 84px + 32px + 10px);
 	}
 
 	/* footer */
