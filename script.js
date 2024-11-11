@@ -143,7 +143,6 @@ function updateCarousel() {
 		// 첫 번째 요소만 중앙에 배치하기 위해 offset 초기화 (50% - 100px)
 		if (currentIndex === 0) {
 			offset = window.innerWidth / 2 - 100; // 화면 50%에서 -100px 위치로 설정
-			console.log(offset);
 		}
 
 		// 모바일 화면일 때
