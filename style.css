@@ -1606,6 +1606,7 @@ footer h3 {
 	footer p {
 		font-size: 14px;
 		font-weight: 300;
+		line-height: 2rem;
 		margin-bottom: 16px !important;
 	}
 }
