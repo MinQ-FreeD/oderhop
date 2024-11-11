@@ -1402,7 +1402,7 @@ footer h3 {
 
 	/* section-8 */
 	.section-8 {
-		padding: 64px 46px;
+		padding: 64px 34px;
 	}
 
 	.section-8__pc-content {
@@ -1430,7 +1430,7 @@ footer h3 {
 
 	/* swiper */
 	.swiper-container {
-		width: 80%;
+		width: 100%;
 		margin: 40px auto;
 		position: relative;
 		overflow: hidden;
@@ -1454,13 +1454,14 @@ footer h3 {
 	.swiper-indicator-container {
 		display: flex;
 		justify-content: center;
-		margin-top: 10px;
+		margin-top: 24px;
 	}
 
 	.swiper-indicator {
-		width: 15px;
-		height: 15px;
-		background-color: gray;
+		width: 8px;
+		height: 8px;
+		background-color: white;
+		border: 1px solid black;
 		margin: 0 5px;
 		border-radius: 50%;
 		cursor: pointer;
