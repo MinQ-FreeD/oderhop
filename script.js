@@ -344,7 +344,7 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 			method: "POST",
 			body: JSON.stringify(formData),
 			headers: { "Content-Type": "application/json" },
-			mode: "no-cors", // CORS를 무시하고 요청을 보냄
+			// mode: "no-cors", // CORS를 무시하고 요청을 보냄
 		});
 		const result = await response.json();
 
