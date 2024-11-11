@@ -209,18 +209,99 @@ prevButton.addEventListener("click", () => {
 // 초기 상태 업데이트
 updateCarousel();
 
-// * section-10
-const brandCarousel = document.querySelector(".brand-carousel");
+// * section-8 mobile swiper
+const swiper = document.getElementById("swiper");
+const slides = document.querySelectorAll(".swiper-slide");
+const indicators = document.querySelectorAll(".swiper-indicator");
+let swiperCurrentIndex = 0;
+const totalSlides = slides.length;
 
-// 복제
-const clone = brandCarousel.cloneNode(true);
+// 슬라이드 복제 (첫 번째와 마지막 요소를 복제해서 양 끝에 추가)
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
 
-// 복제본 추가
-document.querySelector(".brand-carousel-container").appendChild(clone);
+swiper.appendChild(firstClone);
+swiper.insertBefore(lastClone, slides[0]);
 
-// 원본, 복제본 위치 지정
-document.querySelector(".brand-carousel-container").offsetWidth + "px";
+// 업데이트된 총 슬라이드 수
+const updatedSlides = document.querySelectorAll(".swiper-slide");
+let isAnimating = false; // 애니메이션 중인지 확인
 
-// 클래스 할당
-brandCarousel.classList.add("original");
-clone.classList.add("clone");
+// 슬라이드 위치 업데이트 함수
+function updateSwiper() {
+	const offset = -(swiperCurrentIndex + 1) * 100;
+	swiper.style.transition = isAnimating ? "transform 0.3s ease" : "none";
+	swiper.style.transform = `translateX(${offset}%)`;
+
+	// Indicator 업데이트 (루프를 고려하여 인덱스 계산)
+	indicators.forEach((indicator, index) => {
+		const actualIndex = swiperCurrentIndex % totalSlides;
+		indicator.classList.toggle("active", index === actualIndex);
+	});
+}
+
+// 인덱스를 조정하여 무한 루프 효과 적용
+function adjustIndexForLoop() {
+	swiper.addEventListener("transitionend", () => {
+		if (swiperCurrentIndex >= totalSlides) {
+			swiper.style.transition = "none";
+			swiperCurrentIndex = 0;
+			updateSwiper();
+		} else if (swiperCurrentIndex < 0) {
+			swiper.style.transition = "none";
+			swiperCurrentIndex = totalSlides - 1;
+			updateSwiper();
+		}
+	});
+}
+
+// 다음 슬라이드로 이동
+function nextSlide() {
+	if (isAnimating) return; // 애니메이션 중일 때는 실행 방지
+	isAnimating = true;
+	swiperCurrentIndex++;
+	updateSwiper();
+	adjustIndexForLoop();
+	setTimeout(() => (isAnimating = false), 300);
+}
+
+// 이전 슬라이드로 이동
+function prevSlide() {
+	if (isAnimating) return; // 애니메이션 중일 때는 실행 방지
+	isAnimating = true;
+	swiperCurrentIndex--;
+	updateSwiper();
+	adjustIndexForLoop();
+	setTimeout(() => (isAnimating = false), 300);
+}
+
+// 터치 시작 시점 기록
+swiper.addEventListener("touchstart", (e) => {
+	startX = e.touches[0].clientX;
+});
+
+// 터치 이동 시점 기록
+swiper.addEventListener("touchmove", (e) => {
+	endX = e.touches[0].clientX;
+});
+
+// 터치 끝에서 스와이프 방향에 따라 이동
+swiper.addEventListener("touchend", () => {
+	if (startX - endX > 50) {
+		nextSlide(); // 왼쪽 스와이프
+	} else if (endX - startX > 50) {
+		prevSlide(); // 오른쪽 스와이프
+	}
+});
+
+// 인디케이터 클릭 시 이동
+indicators.forEach((indicator, index) => {
+	indicator.addEventListener("click", () => {
+		swiperCurrentIndex = index;
+		updateSwiper();
+	});
+});
+
+// 초기 상태 설정
+swiperCurrentIndex = 0; // 첫 번째 슬라이드로 설정
+updateSwiper();
