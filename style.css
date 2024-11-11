@@ -826,9 +826,8 @@ h2,
 .brand-carousel-container {
 	display: flex;
 	position: relative;
-	top: 0;
-	left: 0;
-	height: 200px;
+	width: 100%;
+	/* height: 200px; */
 	overflow: hidden;
 }
 
@@ -872,7 +871,7 @@ h2,
 }
 .brand-carousel-container .brand-carousel li {
 	width: 200px; /* 그라디언트 너비값 고려 */
-	height: 200px;
+	/* height: 200px; */
 	border-radius: 20px;
 	overflow: hidden;
 	line-height: 200px;
@@ -912,20 +911,29 @@ h2,
 .section-11 {
 	position: relative;
 	/* 166px 200px */
-	padding: 10.375rem 0 12.5rem 0;
+	padding: 0.375rem 0 12.5rem 0;
 	background-color: var(--section-bg-white);
 }
+
 .section-11 .guide-slide-container {
 	padding: 0;
 }
 .section-11 .left-content-wrap {
-	padding: 0;
+	/* padding: 0; */
+}
+
+.mobile-line-break {
+	display: none;
+}
+
+.pc-line-break {
+	display: inline;
 }
 
 .section-11 .left-content-wrap img {
 	/* 435px */
-	width: 27.188rem;
-	transform: rotate(100deg);
+	/* width: 27.188rem; */
+	/* transform: rotate(100deg); */
 }
 
 /* section-12 */
@@ -994,7 +1002,7 @@ h2,
 .form-group input {
 	display: block;
 	width: 100%;
-	padding: 0.875rem 1rem;
+	padding: 14px 16px;
 	margin: 0.75rem 0 1.5rem 0;
 	border: 1px solid #e6e6e6;
 	border-radius: 8px;
@@ -1049,7 +1057,8 @@ label[for="agreement"] {
 /* footer */
 footer {
 	width: 100%;
-	background-color: var(--section-bg2);
+	background-color: #474747;
+
 	/* 100px */
 	padding: 6.25rem 0;
 }
@@ -1251,6 +1260,11 @@ footer h3 {
 	.section-3,
 	.section-11 {
 		height: 100%;
+		padding: 0 0 64px 0;
+	}
+
+	.section-11 .max-container {
+		padding: 0 30px;
 	}
 
 	.guide-slide-container {
@@ -1273,6 +1287,14 @@ footer h3 {
 		position: static;
 	}
 
+	.mobile-line-break {
+		display: inline;
+	}
+
+	.pc-line-break {
+		display: none;
+	}
+
 	.left-content-wrap img {
 		width: 100px;
 		margin-top: 0px; /* 조절 필요 */
@@ -1284,7 +1306,8 @@ footer h3 {
 
 	.mobile-animation-on {
 		display: block !important;
-		width: 80% !important;
+		width: 60% !important;
+		padding: 40px 0 0 0;
 	}
 
 	.mobile-animation-off {
@@ -1411,7 +1434,7 @@ footer h3 {
 
 	/* mobile */
 	.section-8__mobile-content {
-		display: block;
+		display: block !important;
 	}
 
 	.section-8__mobile__title_wrap {
@@ -1480,7 +1503,7 @@ footer h3 {
 	}
 
 	.section-9__mobile-content {
-		display: block;
+		display: block !important;
 	}
 
 	.section-9__mobile-content__wrap {
@@ -1505,8 +1528,84 @@ footer h3 {
 		font-size: var(--text-h2-mobile-size);
 	}
 
+	.section-10 .description {
+		margin: 68px 0 64px 0;
+	}
+
+	.brand-carousel-container .brand-carousel li {
+		width: 120px;
+	}
+
+	.brand-carousel-container::before,
+	.brand-carousel-container::after {
+		width: 60px; /* 투명도 효과를 줄 영역의 너비 */
+	}
+
+	/* section-12 */
+	.section-12 {
+		padding: 64px 16px;
+	}
+
+	.section-12 .max-container {
+		flex-direction: column;
+	}
+
+	.section-12__title {
+		padding: 0 12px;
+	}
+
+	.section-12__title p:first-of-type {
+		font-size: var(--text-h2-mobile-size);
+	}
+
+	.section-12__title h2 {
+		font-size: 20px;
+		line-height: 3rem;
+		margin: 16px 0 24px 0;
+	}
+
+	.section-12__title p:last-of-type {
+		font-size: 14px;
+	}
+
+	.form-container {
+		padding: 0;
+		margin-top: 44px;
+	}
+
+	.form-group input {
+		margin: 12px 0 24px 0;
+	}
+
+	.form-group.checkbox {
+		margin-bottom: 24px;
+	}
+
+	#agreement {
+		/* width: 16px; */
+		/* height: 16px; */
+		transform: scale(1.4);
+		-webkit-transform: scale(1.4); /* 크로스 브라우징 */
+		margin: 0;
+	}
+
 	/* footer */
 	footer {
-		overflow: hidden;
+		padding: 50px 16px 45px 16px;
+	}
+
+	footer .max-container {
+		flex-direction: column;
+		gap: 44px;
+	}
+
+	footer h3 {
+		font-size: 14px;
+	}
+
+	footer p {
+		font-size: 14px;
+		font-weight: 300;
+		margin-bottom: 16px !important;
 	}
 }
