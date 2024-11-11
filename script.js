@@ -210,7 +210,6 @@ prevButton.addEventListener("click", () => {
 updateCarousel();
 
 // * section-8 mobile swiper
-const swiper = document.getElementById("swiper");
 const slides = document.querySelectorAll(".swiper-slide");
 const indicators = document.querySelectorAll(".swiper-indicator");
 let swiperCurrentIndex = 0;
@@ -220,18 +219,22 @@ const totalSlides = slides.length;
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[slides.length - 1].cloneNode(true);
 
-swiper.appendChild(firstClone);
-swiper.insertBefore(lastClone, slides[0]);
+document.querySelector(".swiper").appendChild(firstClone);
+document.querySelector(".swiper").insertBefore(lastClone, slides[0]);
 
 // 업데이트된 총 슬라이드 수
 const updatedSlides = document.querySelectorAll(".swiper-slide");
 let isAnimating = false; // 애니메이션 중인지 확인
+let autoSlideInterval;
+let isMouseDown = false; // 마우스가 눌린 상태인지 확인
 
 // 슬라이드 위치 업데이트 함수
 function updateSwiper() {
 	const offset = -(swiperCurrentIndex + 1) * 100;
-	swiper.style.transition = isAnimating ? "transform 0.3s ease" : "none";
-	swiper.style.transform = `translateX(${offset}%)`;
+	document.querySelector(".swiper").style.transition = isAnimating
+		? "transform 0.3s ease"
+		: "none";
+	document.querySelector(".swiper").style.transform = `translateX(${offset}%)`;
 
 	// Indicator 업데이트 (루프를 고려하여 인덱스 계산)
 	indicators.forEach((indicator, index) => {
@@ -242,13 +245,13 @@ function updateSwiper() {
 
 // 인덱스를 조정하여 무한 루프 효과 적용
 function adjustIndexForLoop() {
-	swiper.addEventListener("transitionend", () => {
+	document.querySelector(".swiper").addEventListener("transitionend", () => {
 		if (swiperCurrentIndex >= totalSlides) {
-			swiper.style.transition = "none";
+			document.querySelector(".swiper").style.transition = "none";
 			swiperCurrentIndex = 0;
 			updateSwiper();
 		} else if (swiperCurrentIndex < 0) {
-			swiper.style.transition = "none";
+			document.querySelector(".swiper").style.transition = "none";
 			swiperCurrentIndex = totalSlides - 1;
 			updateSwiper();
 		}
@@ -265,35 +268,6 @@ function nextSlide() {
 	setTimeout(() => (isAnimating = false), 300);
 }
 
-// 이전 슬라이드로 이동
-function prevSlide() {
-	if (isAnimating) return; // 애니메이션 중일 때는 실행 방지
-	isAnimating = true;
-	swiperCurrentIndex--;
-	updateSwiper();
-	adjustIndexForLoop();
-	setTimeout(() => (isAnimating = false), 300);
-}
-
-// 터치 시작 시점 기록
-swiper.addEventListener("touchstart", (e) => {
-	startX = e.touches[0].clientX;
-});
-
-// 터치 이동 시점 기록
-swiper.addEventListener("touchmove", (e) => {
-	endX = e.touches[0].clientX;
-});
-
-// 터치 끝에서 스와이프 방향에 따라 이동
-swiper.addEventListener("touchend", () => {
-	if (startX - endX > 50) {
-		nextSlide(); // 왼쪽 스와이프
-	} else if (endX - startX > 50) {
-		prevSlide(); // 오른쪽 스와이프
-	}
-});
-
 // 인디케이터 클릭 시 이동
 indicators.forEach((indicator, index) => {
 	indicator.addEventListener("click", () => {
@@ -305,6 +279,41 @@ indicators.forEach((indicator, index) => {
 // 초기 상태 설정
 swiperCurrentIndex = 0; // 첫 번째 슬라이드로 설정
 updateSwiper();
+
+// 자동 슬라이드 이동 (2초마다)
+function startAutoSlide() {
+	autoSlideInterval = setInterval(nextSlide, 2000);
+}
+
+function stopAutoSlide() {
+	clearInterval(autoSlideInterval);
+}
+
+// 슬라이드 자동 이동 시작
+startAutoSlide();
+
+// 슬라이드 자동 이동 멈추기 및 재시작
+document.querySelector(".swiper").addEventListener("mousedown", () => {
+	isMouseDown = true;
+	stopAutoSlide(); // 마우스를 누르면 자동 슬라이드 멈춤
+});
+
+document.querySelector(".swiper").addEventListener("mouseup", () => {
+	isMouseDown = false;
+	if (!autoSlideInterval) startAutoSlide(); // 손을 떼면 자동 슬라이드 다시 시작
+});
+
+document.querySelector(".swiper").addEventListener("touchstart", () => {
+	isMouseDown = true;
+	stopAutoSlide(); // 터치를 시작하면 자동 슬라이드 멈춤
+});
+
+document.querySelector(".swiper").addEventListener("touchend", () => {
+	isMouseDown = false;
+	if (!autoSlideInterval) startAutoSlide(); // 손을 떼면 자동 슬라이드 다시 시작
+});
+
+// 슬라이드 누르고 있을 때 멈추고 손 떼면 자동으로 다시 슬라이드가 이동
 
 // * section-10
 const brandCarousel = document.querySelector(".brand-carousel");

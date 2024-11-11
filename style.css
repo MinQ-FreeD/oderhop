@@ -1481,8 +1481,8 @@ footer h3 {
 	}
 
 	.swiper-indicator {
-		width: 8px;
-		height: 8px;
+		width: 10px;
+		height: 10px;
 		background-color: white;
 		border: 1px solid black;
 		margin: 0 5px;
