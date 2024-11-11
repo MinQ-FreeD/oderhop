@@ -133,16 +133,45 @@ const totalItems = carouselItems.length;
 
 // 각 아이템의 크기와 gap을 고려하여 이동
 function updateCarousel() {
-	const gap = 60; // gap 설정
+	// gap 값 동적으로 가져오기
+	const computedStyle = window.getComputedStyle(carousel);
+	const gap = parseInt(computedStyle.gap, 10); // flex gap 값 가져오기
 	let offset = 0;
 
-	// 이동 값 계산: 각 아이템의 크기 + gap을 고려
-	for (let i = 0; i < currentIndex; i++) {
-		offset += carouselItems[i].offsetWidth + gap;
+	// 화면 크기가 모바일일 때만 처리
+	if (window.innerWidth <= 768) {
+		// 첫 번째 요소만 중앙에 배치하기 위해 offset 초기화 (50% - 100px)
+		if (currentIndex === 0) {
+			offset = window.innerWidth / 2 - 100; // 화면 50%에서 -100px 위치로 설정
+			console.log(offset);
+		}
+
+		// 모바일 화면일 때
+		for (let i = 0; i < currentIndex; i++) {
+			offset += carouselItems[i].offsetWidth + gap; // 각 아이템 크기와 gap 적용
+		}
+
+		// 중앙 정렬을 위한 offset 보정
+		const carouselWidth = carousel.offsetWidth;
+		const centerOffset =
+			(carouselWidth - carouselItems[currentIndex].offsetWidth) / 2;
+
+		if (currentIndex !== 0) {
+			offset = offset - centerOffset;
+		}
+	} else {
+		// 모바일이 아닌 화면에서 gap과 offset 계산
+		for (let i = 0; i < currentIndex; i++) {
+			offset += carouselItems[i].offsetWidth + gap; // 각 아이템 크기와 gap 적용
+		}
 	}
 
-	// carousel 이동
-	carousel.style.transform = `translateX(-${offset}px)`;
+	if (currentIndex === 0) {
+		carousel.style.transform = `translateX(${offset}px)`;
+	} else {
+		// carousel 이동
+		carousel.style.transform = `translateX(-${offset}px)`;
+	}
 
 	// 각 아이템의 opacity 값 업데이트
 	carouselItems.forEach((item, index) => {

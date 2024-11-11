@@ -477,6 +477,7 @@ h2,
 }
 
 /* floating-animation-image */
+
 .floating-animation-image {
 	animation: diagonalFloating 4s ease-in-out infinite;
 }
@@ -667,7 +668,6 @@ h2,
 
 .section-7__container .carousel-container {
 	width: 100%;
-
 	overflow: hidden;
 }
 
@@ -1277,8 +1277,13 @@ footer h3 {
 		margin-top: 0px; /* 조절 필요 */
 	}
 
+	.floating-animation-image {
+		margin: 0 auto;
+	}
+
 	.mobile-animation-on {
 		display: block !important;
+		width: 80% !important;
 	}
 
 	.mobile-animation-off {
@@ -1287,6 +1292,107 @@ footer h3 {
 
 	.guide-slide__card {
 		top: calc(14% + 84px + 32px + 10px);
+	}
+
+	/* section-6 */
+	.section-6 {
+	}
+
+	.section-6 h2 {
+		font-size: var(--text-h2-mobile-size);
+		padding: 58px 0 48px 0;
+	}
+
+	.section-6 .tables-wrap {
+		padding-bottom: 64px;
+	}
+
+	.tables-wrap {
+		padding: 0 12px;
+	}
+
+	.table .table-toggle-btn {
+		padding: 24px 0;
+	}
+
+	.table-toggle-btn p {
+		font-size: var(--text-p-mobile-size);
+	}
+
+	.tables-wrap .arrow {
+		width: 17px;
+		height: 9px;
+	}
+
+	/* section-7 */
+	.section-7 {
+	}
+
+	.section-7__container h2 {
+		font-size: var(--text-h2-mobile-size);
+		line-height: 3rem;
+		padding: 64px 12px 48px 12px;
+	}
+
+	.section-7__container .carousel-container {
+	}
+
+	.carousel-container-box {
+		flex-direction: column;
+		margin: 0 auto;
+		transform: none;
+		/* transform: translateX(calc(50% - 80px)) !important; */
+	}
+
+	/* lt */
+	.infinite-button-container {
+		margin: 0;
+	}
+
+	.infinite-button-container > p {
+		font-size: var(--text-h1-mobile-size);
+	}
+
+	.buttons-wrap {
+		scale: 0.8;
+	}
+
+	/* rt  */
+	.infinite-carousel-container {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.infinite-carousel {
+		/* transform: translateX(calc(50% - 100px)); */
+
+		margin-top: 32px;
+		gap: 16px; /* js와 동일해야함 */
+	}
+
+	.infinite-carousel-item {
+		/* width: 30% !important;  */
+	}
+
+	/* 각 item */
+	.infinite-carousel-item:nth-child(1) {
+		width: 200px !important; /* 비율에 맞게 조정 */
+	}
+	.infinite-carousel-item:nth-child(2) {
+		width: 200px !important;
+	}
+	.infinite-carousel-item:nth-child(3) {
+		width: 160px !important;
+	}
+	.infinite-carousel-item:nth-child(4) {
+		width: 310px !important;
+	}
+	.infinite-carousel-item:nth-child(5) {
+		width: 260px !important;
+	}
+	.infinite-carousel-item:nth-child(6) {
+		width: 260px !important;
 	}
 
 	/* footer */
