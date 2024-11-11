@@ -305,3 +305,15 @@ indicators.forEach((indicator, index) => {
 // 초기 상태 설정
 swiperCurrentIndex = 0; // 첫 번째 슬라이드로 설정
 updateSwiper();
+
+// * section-10
+const brandCarousel = document.querySelector(".brand-carousel");
+// 복제
+const clone = brandCarousel.cloneNode(true);
+// 복제본 추가
+document.querySelector(".brand-carousel-container").appendChild(clone);
+// 원본, 복제본 위치 지정
+document.querySelector(".brand-carousel-container").offsetWidth + "px";
+// 클래스 할당
+brandCarousel.classList.add("original");
+clone.classList.add("clone");

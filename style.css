@@ -1431,7 +1431,7 @@ footer h3 {
 	/* swiper */
 	.swiper-container {
 		width: 100%;
-		margin: 40px auto;
+		margin: 0 auto;
 		position: relative;
 		overflow: hidden;
 	}
@@ -1469,6 +1469,40 @@ footer h3 {
 
 	.swiper-indicator.active {
 		background-color: black;
+	}
+
+	/* section-9 */
+	.section-9 {
+	}
+
+	.section-9__pc-contnet {
+		display: none;
+	}
+
+	.section-9__mobile-content {
+		display: block;
+	}
+
+	.section-9__mobile-content__wrap {
+		position: relative;
+	}
+
+	.section-9__mobile-content__wrap .floating-content {
+		display: block;
+		width: 90%;
+		position: absolute;
+		bottom: 80px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	/* section-10 */
+	.section-10 {
+		padding: 64px 0;
+	}
+
+	.section-10 h2 {
+		font-size: var(--text-h2-mobile-size);
 	}
 
 	/* footer */
