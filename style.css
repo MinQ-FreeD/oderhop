@@ -980,7 +980,7 @@ h2,
 	padding: 2rem 2.5rem;
 }
 
-#inquiryForm {
+#surveyForm {
 }
 
 .form-group {
@@ -1040,7 +1040,7 @@ label[for="agreement"] {
 	color: #5c5c5c;
 }
 
-#inquiryForm .submit-button {
+#surveyForm .submit-button {
 	appearance: none;
 	background-color: var(--button-bg-solid-color);
 	width: 100%;

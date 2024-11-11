@@ -326,3 +326,35 @@ document.querySelector(".brand-carousel-container").offsetWidth + "px";
 // 클래스 할당
 brandCarousel.classList.add("original");
 clone.classList.add("clone");
+
+// * 써베이 폼
+const scriptURL =
+	"https://script.google.com/macros/s/AKfycbyJO29i9-LgPsNPf6mgy9dH82tiwmERadMswyjO_401SKn8nZnyJ2LDaXRxdt02yyex/exec";
+
+document.getElementById("surveyForm").addEventListener("submit", async (e) => {
+	e.preventDefault();
+	const formData = {
+		region: document.getElementById("region").value,
+		industry: document.getElementById("industry").value,
+		phone: document.getElementById("phone").value,
+	};
+
+	try {
+		const response = await fetch(scriptURL, {
+			method: "POST",
+			body: JSON.stringify(formData),
+			headers: { "Content-Type": "application/json" },
+			mode: "no-cors", // CORS를 무시하고 요청을 보냄
+		});
+		const result = await response.json();
+
+		if (result.status === "success") {
+			alert("Survey submitted successfully!");
+		} else {
+			alert("Submission failed. Please try again.");
+		}
+	} catch (error) {
+		console.error("Error!", error.message);
+		alert("An error occurred while submitting the form.");
+	}
+});
