@@ -387,7 +387,8 @@ h2,
 	margin-top: 6.25rem; /* 100px */
 
 	width: 100%; /* 950px */
-	height: 22.126rem; /* 354px */
+	/* 354px */
+	height: auto;
 
 	/* border: 1px solid #dbdbdb; */
 	box-shadow: 0px 0px 40px 0px #0000001a;
