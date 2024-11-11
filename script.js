@@ -280,9 +280,9 @@ indicators.forEach((indicator, index) => {
 swiperCurrentIndex = 0; // 첫 번째 슬라이드로 설정
 updateSwiper();
 
-// 자동 슬라이드 이동 (2초마다)
+// 자동 슬라이드 이동 (2.5초마다)
 function startAutoSlide() {
-	autoSlideInterval = setInterval(nextSlide, 2000);
+	autoSlideInterval = setInterval(nextSlide, 2500);
 }
 
 function stopAutoSlide() {
