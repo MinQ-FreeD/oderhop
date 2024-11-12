@@ -425,7 +425,7 @@ h2,
 	flex-direction: row;
 	justify-content: space-between;
 	padding-top: 10.75rem; /* 172px */
-	padding-bottom: 5.375rem; /* 86px */
+	padding-bottom: 12.5rem; /* 86px */
 }
 
 .left-content-wrap,
@@ -911,15 +911,7 @@ h2,
 .section-11 {
 	position: relative;
 	/* 166px 200px */
-	padding: 0.375rem 0 12.5rem 0;
 	background-color: var(--section-bg-white);
-}
-
-.section-11 .guide-slide-container {
-	padding: 0;
-}
-.section-11 .left-content-wrap {
-	/* padding: 0; */
 }
 
 .mobile-line-break {
