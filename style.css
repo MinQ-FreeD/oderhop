@@ -358,12 +358,12 @@ h2,
 }
 
 .section-2 .category .category__category-btn {
-	height: var(--button-48-height);
+	/* height: var(--button-48-height); */
 	font-size: var(--button-48-text-size);
 	white-space: nowrap;
 
 	border-radius: var(--button-border-radius);
-	padding: 0.75rem 2.3rem;
+	padding: 0.75rem 2rem;
 
 	color: var(--button-text-outlined-color);
 	border: 1px solid var(--button-border-outlined-color);
