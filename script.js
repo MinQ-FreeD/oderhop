@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
 				if (entry.isIntersecting) {
 					// 요소가 뷰포트에 들어왔을 때, is-visible 클래스를 추가하여 애니메이션 실행
 					entry.target.classList.add("is-visible");
-					// observer.unobserve(entry.target); // 최초 한번만 실행되도록 관찰 해제
+					observer.unobserve(entry.target); // 최초 한번만 실행되도록 관찰 해제
 				}
 			});
 		},
-		{ threshold: 0.2 } // 요소의 50%가 화면에 들어올 때 트리거
+		{ threshold: 0.3 } // 요소의 50%가 화면에 들어올 때 트리거
 	);
 
 	// 각 .slide-up 요소를 관찰
@@ -351,7 +351,7 @@ clone.classList.add("clone");
 
 // * 써베이 폼
 const scriptURL =
-	"https://script.google.com/macros/s/AKfycbyJO29i9-LgPsNPf6mgy9dH82tiwmERadMswyjO_401SKn8nZnyJ2LDaXRxdt02yyex/exec";
+	"https://script.google.com/macros/s/AKfycbwcXRnBWTpWXDdJOoVPu8dxtL2ZRKkuJlIfjT10oN7OKUH8fgDCdv67qJP1OfIvAtMJjQ/exec";
 
 document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	e.preventDefault();
