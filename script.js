@@ -363,6 +363,7 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 
 	try {
 		const response = await fetch(scriptURL, {
+			redirect: "follow",
 			method: "POST",
 			body: JSON.stringify(formData),
 			headers: { "Content-Type": "application/json" },
