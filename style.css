@@ -564,12 +564,21 @@ h2,
 .section-5 {
 }
 
-.section-5 picture {
-	display: block;
-	width: 100%;
+.section-5 .section-5__title {
+	font-size: var(--text-h2-size);
+	line-height: 5rem;
+	padding: 11.25rem 0 8.125rem 0;
 }
 
-.section-5 picture img {
+.section-5 .on-pc {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 2.5rem;
+}
+
+.section-5 .on-mobile {
+	display: none;
 }
 
 /* section6 */
@@ -1308,6 +1317,22 @@ footer h3 {
 
 	.guide-slide__card {
 		top: calc(14% + 84px + 32px + 10px);
+	}
+
+	/* section-5 */
+	.section-5 {
+	}
+
+	.section-5 .section-5__title {
+		display: none;
+	}
+
+	.section-5 .on-pc {
+		display: none;
+	}
+
+	.section-5 .on-mobile {
+		display: block !important;
 	}
 
 	/* section-6 */
