@@ -96,6 +96,29 @@ window.addEventListener("scroll", () => {
 	});
 });
 
+// * section-5 slide-up
+document.addEventListener("DOMContentLoaded", function () {
+	// 모든 .slide-up 요소 선택
+	const elements = document.querySelectorAll(".slide-up");
+
+	const observer = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((entry) => {
+				console.log(entry); // entry 객체 로그
+				if (entry.isIntersecting) {
+					// 요소가 뷰포트에 들어왔을 때, is-visible 클래스를 추가하여 애니메이션 실행
+					entry.target.classList.add("is-visible");
+					// observer.unobserve(entry.target); // 최초 한번만 실행되도록 관찰 해제
+				}
+			});
+		},
+		{ threshold: 0.2 } // 요소의 50%가 화면에 들어올 때 트리거
+	);
+
+	// 각 .slide-up 요소를 관찰
+	elements.forEach((element) => observer.observe(element));
+});
+
 // * section-6 tables toggle
 document.querySelectorAll(".table-toggle-btn").forEach((btn) => {
 	const table = btn.nextElementSibling; // 클릭한 버튼 바로 다음의 요소를 선택

@@ -292,6 +292,18 @@ h2,
 	color: var(--primary-title-color);
 }
 
+/* slide-up */
+.slide-up {
+	opacity: 0;
+	transform: translateY(100px); /* 애니메이션 시작 위치 */
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-5 .slide-up.is-visible {
+	opacity: 1;
+	transform: translateY(0); /* 애니메이션 종료 위치 */
+}
+
 /* each section */
 
 /* section-1 */
@@ -561,7 +573,9 @@ h2,
 }
 
 /* section5 */
+/* section5 */
 .section-5 {
+	/* 필요한 스타일 */
 }
 
 .section-5 .section-5__title {
@@ -569,6 +583,12 @@ h2,
 	line-height: 5rem;
 	padding: 11.25rem 0 8.125rem 0;
 }
+/* 
+.section-5 .slide-up {
+	opacity: 0;
+	transform: translateY(50px); /* 애니메이션 시작 위치 *
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+} */
 
 .section-5 .on-pc {
 	width: 100%;
@@ -577,6 +597,12 @@ h2,
 	gap: 2.5rem;
 	margin-bottom: 8.75rem;
 }
+
+/* .is-visible 클래스를 추가하면 애니메이션이 활성화됨 */
+/* .section-5 .on-pc.is-visible {
+	opacity: 1;
+	transform: translateY(0); /* 애니메이션 종료 위치 
+} */
 
 .section-5 .on-mobile {
 	display: none;
