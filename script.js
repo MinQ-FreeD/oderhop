@@ -363,10 +363,11 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 
 	try {
 		const response = await fetch(scriptURL, {
-			redirect: "follow",
+			// redirect: "follow",
 			method: "POST",
 			body: JSON.stringify(formData),
 			headers: { "Content-Type": "application/json" },
+			credentials: "include", // CORS에서 자격 증명 포함
 			// mode: "no-cors", // CORS를 무시하고 요청을 보냄
 		});
 		const result = await response.json();
