@@ -351,7 +351,7 @@ clone.classList.add("clone");
 
 // * 써베이 폼
 const scriptURL =
-	"https://script.google.com/macros/s/AKfycbyjwCy1BS2cE9nN9WlRx2PXgZQyfYVhqYcBUosApR5HPyMSyp-m617pWXqlZfPZCcqniw/exec";
+	"https://script.google.com/macros/s/AKfycbwbKb-fYBwuUYy7N8wNN4izXaOnM1XWoY33KSzralIhpwEEb8y7OLUIr4RrAjieBotwBA/exec";
 
 // const params = `?callback=googleDocCallback`;
 document.getElementById("surveyForm").addEventListener("submit", async (e) => {
@@ -369,11 +369,12 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 			method: "POST",
 			body: JSON.stringify(formData),
 			headers: {
-				"Content-Type": "text/plain;charset=utf-8",
+				// "Content-Type": "text/plain;charset=utf-8",
+				"Content-Type": "application/json",
 			},
 			credentials: "include", // CORS에서 자격 증명 포함
 			// headers: { "Content-Type": "application/json" },
-			// mode: "no-cors", // CORS를 무시하고 요청을 보냄
+			mode: "no-cors", // CORS를 무시하고 요청을 보냄
 		});
 		const result = await response.json();
 
