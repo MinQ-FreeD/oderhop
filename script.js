@@ -351,10 +351,12 @@ clone.classList.add("clone");
 
 // * 써베이 폼
 const scriptURL =
-	"https://script.google.com/macros/s/AKfycbwcXRnBWTpWXDdJOoVPu8dxtL2ZRKkuJlIfjT10oN7OKUH8fgDCdv67qJP1OfIvAtMJjQ/exec";
+	"https://script.google.com/macros/s/AKfycbyjwCy1BS2cE9nN9WlRx2PXgZQyfYVhqYcBUosApR5HPyMSyp-m617pWXqlZfPZCcqniw/exec";
 
+// const params = `?callback=googleDocCallback`;
 document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	e.preventDefault();
+
 	const formData = {
 		region: document.getElementById("region").value,
 		industry: document.getElementById("industry").value,
@@ -362,12 +364,15 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	};
 
 	try {
-		const response = await fetch(scriptURL, {
-			// redirect: "follow",
+		const response = await fetch(`${scriptURL}`, {
+			redirect: "follow",
 			method: "POST",
 			body: JSON.stringify(formData),
-			headers: { "Content-Type": "application/json" },
+			headers: {
+				"Content-Type": "text/plain;charset=utf-8",
+			},
 			credentials: "include", // CORS에서 자격 증명 포함
+			// headers: { "Content-Type": "application/json" },
 			// mode: "no-cors", // CORS를 무시하고 요청을 보냄
 		});
 		const result = await response.json();

@@ -11,6 +11,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<link rel="stylesheet" href="./style.css" />
+		<!-- jQuery CDN 추가 -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 		<script src="./script.js" defer></script>
 	</head>
 	<body>
@@ -795,5 +798,27 @@
 				</footer>
 			</div>
 		</main>
+
+		<script>
+			var url =
+				"https://script.google.com/macros/s/AKfycbyjwCy1BS2cE9nN9WlRx2PXgZQyfYVhqYcBUosApR5HPyMSyp-m617pWXqlZfPZCcqniw/exec";
+			$(document).ready(function () {
+				$("submit-button").click(function () {
+					$.ajax({
+						type: "GET",
+						url: url,
+						async: true,
+						dataType: "json",
+						success: function (json) {
+							// Parse the response.
+							// Do other things.
+						},
+						error: function (xhr, status, err) {
+							// This time, we do not end up here!
+						},
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
