@@ -350,10 +350,10 @@ brandCarousel.classList.add("original");
 clone.classList.add("clone");
 
 // * 써베이 폼
-// const scriptURL =
-// 	"https://script.google.com/macros/s/AKfycbwbKb-fYBwuUYy7N8wNN4izXaOnM1XWoY33KSzralIhpwEEb8y7OLUIr4RrAjieBotwBA/exec";
+const scriptURL =
+	"https://script.google.com/macros/s/AKfycbwbKb-fYBwuUYy7N8wNN4izXaOnM1XWoY33KSzralIhpwEEb8y7OLUIr4RrAjieBotwBA/exec";
 
-// // const params = `?callback=googleDocCallback`;
+// const params = `?callback=googleDocCallback`;
 // document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 // 	e.preventDefault();
 
@@ -388,8 +388,6 @@ clone.classList.add("clone");
 // 		alert("An error occurred while submitting the form.");
 // 	}
 // });
-const scriptURL =
-	"https://script.google.com/macros/s/AKfycbyJO29i9-LgPsNPf6mgy9dH82tiwmERadMswyjO_401SKn8nZnyJ2LDaXRxdt02yyex/exec";
 
 document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	e.preventDefault();
@@ -405,12 +403,6 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 			body: JSON.stringify(formData),
 			headers: { "Content-Type": "application/json" },
 		});
-
-		// 응답이 성공적이지 않을 경우
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-
 		const result = await response.json();
 		if (result.status === "success") {
 			alert("Survey submitted successfully!");
@@ -419,6 +411,6 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 		}
 	} catch (error) {
 		console.error("Error!", error.message);
-		alert("An error occurred while submitting the form. Please try again.");
+		alert("An error occurred while submitting the form.");
 	}
 });
