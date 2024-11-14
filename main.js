@@ -1,5 +1,6 @@
+import "./style.css";
+
 // * [상담하기, 사용문의하기], [데모 체험하기] 버튼 클릭 시 스크롤 이동
-// 헤더 높이 가져오기
 // 헤더 높이 가져오기
 const header = document.querySelector("header");
 const headerHeight = header.offsetHeight;
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const observer = new IntersectionObserver(
 		(entries, observer) => {
 			entries.forEach((entry) => {
-				console.log(entry); // entry 객체 로그
+				// console.log(entry); // entry 객체 로그
 				if (entry.isIntersecting) {
 					// 요소가 뷰포트에 들어왔을 때, is-visible 클래스를 추가하여 애니메이션 실행
 					entry.target.classList.add("is-visible");

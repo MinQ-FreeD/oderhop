@@ -1,0 +1,17 @@
+{
+	"name": "orderhop-landing",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"deploy": "yarn build && yarn deploy-except-html && yarn deploy-html",
+		"deploy-except-html": "aws s3 sync ./dist s3://orderhop-landing.ara.live --exclude 'index.html' --region ap-northeast-2 --acl bucket-owner-full-control --delete --cache-control 'max-age=0,s-maxage=31536000,must-revalidate'",
+		"deploy-html": "aws s3 cp ./dist/index.html s3://orderhop-landing.ara.live/index.html --cache-control 'max-age=0,no-cache,no-store,must-revalidate'"
+	},
+	"devDependencies": {
+		"vite": "^5.4.10"
+	}
+}
