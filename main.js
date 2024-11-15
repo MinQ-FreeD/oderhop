@@ -389,6 +389,8 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 		const result = await response.text();
 		console.log(result);
 		alert("제출이 완료되었습니다.");
+
+		document.getElementById("surveyForm").reset();
 	} catch (error) {
 		console.error("Error:", error);
 		alert("제출에 실패했습니다.");
