@@ -1,9 +1,11 @@
-import "./style.css";
+// import "./style.css";
 
 // * [상담하기, 사용문의하기], [데모 체험하기] 버튼 클릭 시 스크롤 이동
-// 헤더 높이 가져오기
 const header = document.querySelector("header");
-const headerHeight = header.offsetHeight;
+// 헤더 높이 가져오기
+function getHeaderHeight() {
+	return header.offsetHeight;
+}
 
 // 공통된 스크롤 함수 정의
 function smoothScrollWithOffset(buttonSelector, targetSelector, offset) {
@@ -28,13 +30,23 @@ function smoothScrollWithOffset(buttonSelector, targetSelector, offset) {
 	});
 }
 
-// 버튼들에 스크롤 기능 추가
+// 버튼들에 스크롤 기능 추가 (처음 로드 시)
 smoothScrollWithOffset(
 	".nav-btn-consult, .banner-btn-consult",
 	"#contact",
-	headerHeight
+	getHeaderHeight()
 );
-smoothScrollWithOffset(".nav-btn-demo", ".section-4", headerHeight);
+smoothScrollWithOffset(".nav-btn-demo", ".section-4", getHeaderHeight());
+
+// 화면 크기 변경 시 헤더 높이 업데이트
+window.addEventListener("resize", () => {
+	smoothScrollWithOffset(
+		".nav-btn-consult, .banner-btn-consult",
+		"#contact",
+		getHeaderHeight()
+	);
+	smoothScrollWithOffset(".nav-btn-demo", ".section-4", getHeaderHeight());
+});
 
 // * section-2 image slider container
 const categoryButtons = document.querySelectorAll(".category__category-btn");
@@ -96,6 +108,8 @@ window.addEventListener("scroll", () => {
 		}
 	});
 });
+
+// * section-4 QR code-imagemap
 
 // * section-5 slide-up
 document.addEventListener("DOMContentLoaded", function () {
@@ -351,47 +365,12 @@ brandCarousel.classList.add("original");
 clone.classList.add("clone");
 
 // * 써베이 폼
-const scriptURL =
-	"https://script.google.com/macros/s/AKfycbwbKb-fYBwuUYy7N8wNN4izXaOnM1XWoY33KSzralIhpwEEb8y7OLUIr4RrAjieBotwBA/exec";
-
-// const params = `?callback=googleDocCallback`;
-// document.getElementById("surveyForm").addEventListener("submit", async (e) => {
-// 	e.preventDefault();
-
-// 	const formData = {
-// 		region: document.getElementById("region").value,
-// 		industry: document.getElementById("industry").value,
-// 		phone: document.getElementById("phone").value,
-// 	};
-
-// 	try {
-// 		const response = await fetch(`${scriptURL}`, {
-// 			redirect: "follow",
-// 			method: "POST",
-// 			body: JSON.stringify(formData),
-// 			headers: {
-// 				// "Content-Type": "text/plain;charset=utf-8",
-// 				"Content-Type": "application/json",
-// 			},
-// 			credentials: "include", // CORS에서 자격 증명 포함
-// 			// headers: { "Content-Type": "application/json" },
-// 			mode: "no-cors", // CORS를 무시하고 요청을 보냄
-// 		});
-// 		const result = await response.json();
-
-// 		if (result.status === "success") {
-// 			alert("Survey submitted successfully!");
-// 		} else {
-// 			alert("Submission failed. Please try again.");
-// 		}
-// 	} catch (error) {
-// 		console.error("Error!", error.message);
-// 		alert("An error occurred while submitting the form.");
-// 	}
-// });
+const webAppUrl =
+	"https://script.google.com/macros/s/AKfycbwrv7712Id0Rg1cEFxcaMCpdfBldeYWkvyUNDcaugfrtvXJDwRfXZQncg4OXFj40z7g/exec";
 
 document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	e.preventDefault();
+
 	const formData = {
 		region: document.getElementById("region").value,
 		industry: document.getElementById("industry").value,
@@ -399,19 +378,19 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 	};
 
 	try {
-		const response = await fetch(scriptURL, {
+		const response = await fetch(webAppUrl, {
 			method: "POST",
+			headers: {
+				"Content-Type": "text/plain;charset=utf-8",
+			},
 			body: JSON.stringify(formData),
-			headers: { "Content-Type": "application/json" },
 		});
-		const result = await response.json();
-		if (result.status === "success") {
-			alert("Survey submitted successfully!");
-		} else {
-			alert("Submission failed. Please try again.");
-		}
+
+		const result = await response.text();
+		console.log(result);
+		alert("제출이 완료되었습니다.");
 	} catch (error) {
-		console.error("Error!", error.message);
-		alert("An error occurred while submitting the form.");
+		console.error("Error:", error);
+		alert("제출에 실패했습니다.");
 	}
 });

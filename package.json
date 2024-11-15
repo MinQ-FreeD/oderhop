@@ -13,5 +13,8 @@
 	},
 	"devDependencies": {
 		"vite": "^5.4.10"
+	},
+	"dependencies": {
+		"@noonnu/nanum-square-neo-variable": "^0.1.0"
 	}
 }

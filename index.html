@@ -5,20 +5,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>OderHop</title>
 		<link
+			rel="icon"
+			href="./public/images/PC/PC/orderhop_favicon/favicon.png"
+			type="image/x-icon"
+		/>
+		<link
 			href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
 			rel="stylesheet"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- 아이폰에서 전화번호 부분 자동 색상 변경 방지 -->
+		<meta name="format-detection" content="telephone=no" />
 
-		<!-- <link rel="stylesheet" href="./style.css" /> -->
+		<!-- 배포시 main.js에서 -->
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<header>
 			<div class="max-container">
 				<a href="">
-					<img id="logo" src="./src/images/PC/PC/logo.png" alt="logo" />
+					<img id="logo" src="./public/images/PC/PC/logo.png" alt="logo" />
 				</a>
-				<nav>
+				<nav class="on-mobile-nav">
 					<ul>
 						<li><a class="nav-btn-consult" href="#contact">상담하기</a></li>
 						<li><a class="nav-btn-demo" href="#section4">데모 체험하기</a></li>
@@ -48,7 +56,7 @@
 						<picture>
 							<img
 								class=""
-								src="./src/images/PC/PC/section-1-title.png"
+								src="./public/images/PC/PC/section-1-title.png"
 								alt="주문과 결제는 OrderHop에 맡기고 조리에만 집중하세요!"
 							/>
 						</picture>
@@ -56,17 +64,29 @@
 
 					<div class="contents">
 						<div class="contents__left">
-							<img
-								src="./src/images/Mobile/Mobile/img1-a.png"
-								alt="left content"
-							/>
+							<picture>
+								<source
+									media="(max-width: 768px)"
+									srcset="./public/images/Mobile/Mobile/img1-a.png"
+								/>
+								<img
+									src="./public/images/PC/PC/img1-a.png"
+									alt="left content"
+								/>
+							</picture>
 						</div>
 
 						<div class="contents__right">
-							<img
-								src="./src/images/Mobile/Mobile/img1-b.png"
-								alt="right content"
-							/>
+							<picture>
+								<source
+									media="(max-width: 768px)"
+									srcset="./public/images/Mobile/Mobile/img1-b.png"
+								/>
+								<img
+									src="./public/images/PC/PC/img1-b.png"
+									alt="right content"
+								/>
+							</picture>
 						</div>
 					</div>
 				</section>
@@ -100,12 +120,12 @@
 									<source
 										media="(max-width: 768px)"
 										srcset="
-											./src/images/Mobile/Mobile/helpful_mobile/DID_menu.png
+											./public/images/Mobile/Mobile/helpful_mobile/DID_menu.png
 										"
 									/>
 									<img
 										class="image-slide"
-										src="./src/images/PC/PC/helpful_pc/DID_menu.png"
+										src="./public/images/PC/PC/helpful_pc/DID_menu.png"
 									/>
 								</picture>
 
@@ -113,23 +133,12 @@
 									<source
 										media="(max-width: 768px)"
 										srcset="
-											./src/images/Mobile/Mobile/helpful_mobile/qr_nfc_pay.png
+											./public/images/Mobile/Mobile/helpful_mobile/qr_nfc_pay.png
 										"
 									/>
 									<img
 										class="image-slide"
-										src="./src/images/PC/PC/helpful_pc/qr_nfc_pay.png"
-									/>
-								</picture>
-
-								<picture>
-									<source
-										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/helpful_mobile/KDS.png"
-									/>
-									<img
-										class="image-slide"
-										src="./src/images/PC/PC/helpful_pc/KDS.png"
+										src="./public/images/PC/PC/helpful_pc/qr_nfc_pay.png"
 									/>
 								</picture>
 
@@ -137,12 +146,12 @@
 									<source
 										media="(max-width: 768px)"
 										srcset="
-											./src/images/Mobile/Mobile/helpful_mobile/self_pickup.png
+											./public/images/Mobile/Mobile/helpful_mobile/KDS.png
 										"
 									/>
 									<img
 										class="image-slide"
-										src="./src/images/PC/PC/helpful_pc/self_pickup.png"
+										src="./public/images/PC/PC/helpful_pc/KDS.png"
 									/>
 								</picture>
 
@@ -150,12 +159,25 @@
 									<source
 										media="(max-width: 768px)"
 										srcset="
-											./src/images/Mobile/Mobile/helpful_mobile/robot_delivery.png
+											./public/images/Mobile/Mobile/helpful_mobile/self_pickup.png
+										"
+									/>
+									<img
+										class="image-slide"
+										src="./public/images/PC/PC/helpful_pc/self_pickup.png"
+									/>
+								</picture>
+
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="
+											./public/images/Mobile/Mobile/helpful_mobile/robot_delivery.png
 										"
 									/>
 									<img
 										class="image-slide active"
-										src="./src/images/PC/PC/helpful_pc/robot_delivery.png"
+										src="./public/images/PC/PC/helpful_pc/robot_delivery.png"
 									/>
 								</picture>
 							</div>
@@ -173,7 +195,7 @@
 
 								<img
 									class="floating-animation-image mobile-animation-off"
-									src="./src/images/PC/PC/onlyinorderhop/okay.png"
+									src="./public/images/PC/PC/onlyinorderhop/okay.png"
 									alt="finger image"
 								/>
 							</h2>
@@ -182,19 +204,19 @@
 						<div class="guide-slide">
 							<div class="guide-slide__card" style="z-index: 1">
 								<img
-									src="./src/images/PC/PC/onlyinorderhop/Group 12319.png"
+									src="./public/images/PC/PC/onlyinorderhop/Group 12319.png"
 									alt=""
 								/>
 							</div>
 							<div class="guide-slide__card" style="z-index: 2">
 								<img
-									src="./src/images/PC/PC/onlyinorderhop/Group 12320.png"
+									src="./public/images/PC/PC/onlyinorderhop/Group 12320.png"
 									alt=""
 								/>
 							</div>
 							<div class="guide-slide__card" style="z-index: 3">
 								<img
-									src="./src/images/PC/PC/onlyinorderhop/Group 12321.png"
+									src="./public/images/PC/PC/onlyinorderhop/Group 12321.png"
 									alt=""
 								/>
 							</div>
@@ -203,19 +225,57 @@
 
 					<img
 						class="floating-animation-image mobile-animation-on"
-						src="./src/images/PC/PC/onlyinorderhop/okay.png"
+						src="./public/images/PC/PC/onlyinorderhop/okay.png"
 						alt="finger image"
 					/>
 				</section>
 
-				<section id="section4" class="section-4">
-					<picture>
-						<source
-							media="(max-width: 768px)"
-							srcset="./src/images/PC/PC/demo_qrs/demo_qrs_mobile.png"
-						/>
-						<img src="./src/images/PC/PC/demo_qrs/demo_qrs_pc.png" />
-					</picture>
+				<section id="section-4" class="section-4">
+					<div class="max-container">
+						<div class="section-4__title">
+							<h3>직접 체험해 보세요</h3>
+							<p>
+								카메라를 켜고 QR을 인식하면
+								<br class="mobile-line-break" />오더홉을 체험해 볼 수 있어요
+							</p>
+						</div>
+
+						<div class="qr-wrap">
+							<a
+								class="qr-code-link only-click-mobile"
+								target="_blank"
+								href="https://orderhop.ara.live/stores/3359e097-4288-4a25-8d79-ab3b57ed44cd"
+							>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="
+											./public/images/Mobile/Mobile/demo_qrs/prepayment_qr.png
+										"
+									/>
+									<img src="./public/images/PC/PC/demo_qrs/prepayment_qr.png" />
+								</picture>
+							</a>
+							<a
+								class="qr-code-link only-click-mobile"
+								target="_blank"
+								href="https://orderhop.ara.live/stores/c22a30f0-abe0-4a28-999c-f2d664308610/table-service?floor_code=1&table_code=1"
+							>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="
+											./public/images/Mobile/Mobile/demo_qrs/postpaid_payment_qr.png
+										"
+									/>
+									<img
+										src="./public/images/PC/PC/demo_qrs/postpaid_payment_qr.png"
+										alt=""
+									/>
+								</picture>
+							</a>
+						</div>
+					</div>
 				</section>
 
 				<!-- 사장님의 Hope을 현실로 만드는 Order Hop! -->
@@ -228,15 +288,15 @@
 
 						<div class="on-pc slide-up">
 							<div>
-								<img src="./src/images/PC/PC/img2-a.png" alt="" />
+								<img src="./public/images/PC/PC/img2-a.png" alt="" />
 							</div>
 							<div>
-								<img src="./src/images/PC/PC/img2-b.png" alt="" />
+								<img src="./public/images/PC/PC/img2-b.png" alt="" />
 							</div>
 						</div>
 
 						<div class="on-mobile slide-up" style="display: none">
-							<img src="./src/images/Mobile/Mobile/img2.png" alt="" />
+							<img src="./public/images/Mobile/Mobile/img2.png" alt="" />
 						</div>
 					</div>
 				</section>
@@ -261,10 +321,10 @@
 									<picture>
 										<source
 											media="(max-width: 768px)"
-											srcset="./src/images/Mobile/Mobile/tables/table1.png"
+											srcset="./public/images/Mobile/Mobile/tables/table1.png"
 										/>
 										<img
-											src="./src/images/PC/PC/tables/table1.png"
+											src="./public/images/PC/PC/tables/table1.png"
 											alt="table1"
 										/>
 									</picture>
@@ -281,10 +341,10 @@
 									<picture>
 										<source
 											media="(max-width: 768px)"
-											srcset="./src/images/Mobile/Mobile/tables/table2.png"
+											srcset="./public/images/Mobile/Mobile/tables/table2.png"
 										/>
 										<img
-											src="./src/images/PC/PC/tables/table2.png"
+											src="./public/images/PC/PC/tables/table2.png"
 											alt="table1"
 										/>
 									</picture>
@@ -324,11 +384,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/qr.png
+														./public/images/Mobile/Mobile/customizing_qr/qr.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/qr.png"
+													src="./public/images/PC/PC/customizing_qr/qr.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -339,11 +399,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/nfc.png
+														./public/images/Mobile/Mobile/customizing_qr/nfc.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/nfc.png"
+													src="./public/images/PC/PC/customizing_qr/nfc.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -354,11 +414,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/qr_nfc.png
+														./public/images/Mobile/Mobile/customizing_qr/qr_nfc.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/qr_nfc.png"
+													src="./public/images/PC/PC/customizing_qr/qr_nfc.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -369,11 +429,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/landscape.png
+														./public/images/Mobile/Mobile/customizing_qr/landscape.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/landscape.png"
+													src="./public/images/PC/PC/customizing_qr/landscape.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -384,11 +444,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/portrait.png
+														./public/images/Mobile/Mobile/customizing_qr/portrait.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/portrait.png"
+													src="./public/images/PC/PC/customizing_qr/portrait.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -400,11 +460,11 @@
 												<source
 													media="(max-width: 768px)"
 													srcset="
-														./src/images/Mobile/Mobile/customizing_qr/bookmark.png
+														./public/images/Mobile/Mobile/customizing_qr/bookmark.png
 													"
 												/>
 												<img
-													src="./src/images/PC/PC/customizing_qr/bookmark.png"
+													src="./public/images/PC/PC/customizing_qr/bookmark.png"
 													alt="carousel card"
 												/>
 											</picture>
@@ -420,7 +480,7 @@
 					<!-- pc content will be hidden when mobile -->
 					<div class="section-8__pc-content">
 						<img
-							src="./src/images/PC/PC/img3.png"
+							src="./public/images/PC/PC/img3.png"
 							alt="업종, 규모, 매장 환경에 맞는 가장 적합한 구성을 추천 해드릴게요."
 						/>
 					</div>
@@ -445,25 +505,25 @@
 							<div class="swiper swiper-wrapper" id="swiper">
 								<div class="swiper-slide">
 									<img
-										src="./src/images/Mobile/Mobile/all_in_one/robby.png"
+										src="./public/images/Mobile/Mobile/all_in_one/robby.png"
 										alt=""
 									/>
 								</div>
 								<div class="swiper-slide">
 									<img
-										src="./src/images/Mobile/Mobile/all_in_one/kitchen.png"
+										src="./public/images/Mobile/Mobile/all_in_one/kitchen.png"
 										alt=""
 									/>
 								</div>
 								<div class="swiper-slide">
 									<img
-										src="./src/images/Mobile/Mobile/all_in_one/pickup.png"
+										src="./public/images/Mobile/Mobile/all_in_one/pickup.png"
 										alt=""
 									/>
 								</div>
 								<div class="swiper-slide">
 									<img
-										src="./src/images/Mobile/Mobile/all_in_one/counter.png"
+										src="./public/images/Mobile/Mobile/all_in_one/counter.png"
 										alt=""
 									/>
 								</div>
@@ -484,20 +544,20 @@
 				<!-- 오더홉 솔루션으로 내 매장을 자동화 해보세요. -->
 				<section class="section-9">
 					<div class="section-9__pc-contnet">
-						<img src="./src/images/PC/PC/img4-a.png" alt="" />
+						<img src="./public/images/PC/PC/img4-a.png" alt="" />
 
 						<div class="section-9__pc-content__item max-container">
-							<img class="" src="./src/images/PC/PC/img4-b.png" alt="" />
+							<img class="" src="./public/images/PC/PC/img4-b.png" alt="" />
 						</div>
 					</div>
 
 					<!-- TODO: mobile -->
 					<div class="section-9__mobile-content" style="display: none">
 						<div class="section-9__mobile-content__wrap">
-							<img src="./src/images/Mobile/Mobile/img3-a.png" alt="" />
+							<img src="./public/images/Mobile/Mobile/img3-a.png" alt="" />
 							<img
 								class="floating-content"
-								src="./src/images/Mobile/Mobile/img3-b.png"
+								src="./public/images/Mobile/Mobile/img3-b.png"
 								alt=""
 							/>
 						</div>
@@ -511,9 +571,13 @@
 					<picture>
 						<source
 							media="(max-width: 768px)"
-							srcset="./src/images/Mobile/Mobile/img5.png"
+							srcset="./public/images/Mobile/Mobile/img5.png"
 						/>
-						<img class="description" src="./src/images/PC/PC/img5.png" alt="" />
+						<img
+							class="description"
+							src="./public/images/PC/PC/img5.png"
+							alt=""
+						/>
 					</picture>
 
 					<!-- test -->
@@ -523,72 +587,81 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/1.png"
+										srcset="./public/images/Mobile/Mobile/brands/1.png"
 									/>
-									<img src="./src/images/PC/PC/brands/1.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/1.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/2.png"
+										srcset="./public/images/Mobile/Mobile/brands/2.png"
 									/>
-									<img src="./src/images/PC/PC/brands/2.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/2.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/3.png"
+										srcset="./public/images/Mobile/Mobile/brands/3.png"
 									/>
-									<img src="./src/images/PC/PC/brands/3.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/3.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/4.png"
+										srcset="./public/images/Mobile/Mobile/brands/4.png"
 									/>
-									<img src="./src/images/PC/PC/brands/4.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/4.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/5.png"
+										srcset="./public/images/Mobile/Mobile/brands/5.png"
 									/>
-									<img src="./src/images/PC/PC/brands/5.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/5.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/6.png"
+										srcset="./public/images/Mobile/Mobile/brands/6.png"
 									/>
-									<img src="./src/images/PC/PC/brands/6.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/6.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/7.png"
+										srcset="./public/images/Mobile/Mobile/brands/7.png"
 									/>
-									<img src="./src/images/PC/PC/brands/7.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/7.png" alt="brand" />
 								</picture>
 							</li>
 							<li class="brand-carousel-item">
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/brands/8.png"
+										srcset="./public/images/Mobile/Mobile/brands/8.png"
 									/>
-									<img src="./src/images/PC/PC/brands/8.png" alt="brand" />
+									<img src="./public/images/PC/PC/brands/8.png" alt="brand" />
+								</picture>
+							</li>
+							<li class="brand-carousel-item">
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="./public/images/Mobile/Mobile/brands/9.png"
+									/>
+									<img src="./public/images/PC/PC/brands/9.png" alt="brand" />
 								</picture>
 							</li>
 						</ul>
@@ -609,7 +682,7 @@
 
 								<img
 									class="floating-animation-image mobile-animation-off"
-									src="./src/images/PC/PC/marketing/light_bulb.png"
+									src="./public/images/PC/PC/marketing/light_bulb.png"
 									alt="light image"
 								/>
 							</h2>
@@ -620,10 +693,12 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/marketing/marketing1.png"
+										srcset="
+											./public/images/Mobile/Mobile/marketing/marketing1.png
+										"
 									/>
 									<img
-										src="./src/images/PC/PC/marketing/marketing1.png"
+										src="./public/images/PC/PC/marketing/marketing1.png"
 										alt="marketing"
 									/>
 								</picture>
@@ -632,10 +707,12 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/marketing/marketing2.png"
+										srcset="
+											./public/images/Mobile/Mobile/marketing/marketing2.png
+										"
 									/>
 									<img
-										src="./src/images/PC/PC/marketing/marketing2.png"
+										src="./public/images/PC/PC/marketing/marketing2.png"
 										alt="marketing"
 									/>
 								</picture>
@@ -644,10 +721,12 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/marketing/marketing3.png"
+										srcset="
+											./public/images/Mobile/Mobile/marketing/marketing3.png
+										"
 									/>
 									<img
-										src="./src/images/PC/PC/marketing/marketing3.png"
+										src="./public/images/PC/PC/marketing/marketing3.png"
 										alt="marketing"
 									/>
 								</picture>
@@ -656,10 +735,12 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/marketing/marketing4.png"
+										srcset="
+											./public/images/Mobile/Mobile/marketing/marketing4.png
+										"
 									/>
 									<img
-										src="./src/images/PC/PC/marketing/marketing4.png"
+										src="./public/images/PC/PC/marketing/marketing4.png"
 										alt="marketing"
 									/>
 								</picture>
@@ -668,10 +749,12 @@
 								<picture>
 									<source
 										media="(max-width: 768px)"
-										srcset="./src/images/Mobile/Mobile/marketing/marketing5.png"
+										srcset="
+											./public/images/Mobile/Mobile/marketing/marketing5.png
+										"
 									/>
 									<img
-										src="./src/images/PC/PC/marketing/marketing5.png"
+										src="./public/images/PC/PC/marketing/marketing5.png"
 										alt="marketing"
 									/>
 								</picture>
@@ -681,7 +764,7 @@
 
 					<img
 						class="floating-animation-image mobile-animation-on"
-						src="./src/images/PC/PC/marketing/light_bulb.png"
+						src="./public/images/PC/PC/marketing/light_bulb.png"
 						alt="light image"
 					/>
 				</section>
@@ -771,7 +854,7 @@
 						<div class="company-info">
 							<h3>유한회사 프리디소프트</h3>
 							<p class="company-representative">
-								<span>상호: &nbsp;유한회사 프리디 소프트</span>
+								<span>상호: &nbsp;유한회사 프리디소프트</span>
 								<span>대표: &nbsp;이민규</span>
 							</p>
 							<p>사업자등록번호: &nbsp;590-88-00990</p>
@@ -787,8 +870,8 @@
 							<h4>010-2034-3619</h4>
 							<p>평일: &nbsp;10:00 - 18:00</p>
 							<p>점심시간: &nbsp;12:00 - 13:00</p>
-							<p>주말 및 공휴일 후무</p>
-							<p>email: &nbsp;support@freedgrouptech.co.kr</p>
+							<p>24시간 연중무휴</p>
+							<p>email: &nbsp;dan.shim@freedgrouptech.com</p>
 						</div>
 					</div>
 				</footer>
