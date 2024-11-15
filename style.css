@@ -1234,6 +1234,15 @@ footer h3 {
 		flex: 1;
 	}
 
+	header nav ul li .nav-btn-consult:hover {
+		background-color: inherit;
+	}
+
+	header nav ul li .nav-btn-demo:hover {
+		background-color: var(--button-bg-solid-color);
+		border: 1px solid var(--button-border-solid-color);
+	}
+
 	#main-banner {
 		background: url("./public/images/Mobile/Mobile/main_banner.png");
 		background-size: cover;
@@ -1266,6 +1275,10 @@ footer h3 {
 		width: 129px;
 		height: 44px;
 		padding: var(--button-mobile-padding);
+	}
+
+	#main-banner .banner-btn-consult:hover {
+		background-color: var(--button-bg-solid-color);
 	}
 
 	/* section-1 */
