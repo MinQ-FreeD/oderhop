@@ -224,7 +224,7 @@ header nav ul li .nav-btn-demo:hover {
 #main-banner {
 	position: relative;
 	width: 100%;
-	background-image: url("./public/images/PC/PC/main_banner.png");
+	background-image: url("../images/PC/PC/main_banner.png");
 
 	background-size: cover;
 	background-position: center;
@@ -677,7 +677,7 @@ h2,
 	display: inline-block;
 	width: 18px;
 	height: 33px;
-	background: url("./public/images/PC/PC/icons/table-arrow.png");
+	background: url("../images/PC/PC/icons/table-arrow.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -771,7 +771,7 @@ h2,
 }
 
 #carousel-prev {
-	background-image: url("./public/images/PC/PC/icons/prev-arrow.png");
+	background-image: url("../images/PC/PC/icons/prev-arrow.png");
 }
 
 #carousel-count {
@@ -781,7 +781,7 @@ h2,
 }
 
 #carousel-next {
-	background-image: url("./public/images/PC/PC/icons/next-arrow.png");
+	background-image: url("../images/PC/PC/icons/next-arrow.png");
 }
 
 /* carousel */
@@ -1244,7 +1244,7 @@ footer h3 {
 	}
 
 	#main-banner {
-		background: url("./public/images/Mobile/Mobile/main_banner.png");
+		background: url("../images/Mobile/Mobile/main_banner.png");
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;

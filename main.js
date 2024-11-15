@@ -1,4 +1,4 @@
-// import "./style.css";
+import "./style.css";
 
 // * [상담하기, 사용문의하기], [데모 체험하기] 버튼 클릭 시 스크롤 이동
 const header = document.querySelector("header");
