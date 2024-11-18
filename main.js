@@ -396,3 +396,13 @@ document.getElementById("surveyForm").addEventListener("submit", async (e) => {
 		alert("제출에 실패했습니다.");
 	}
 });
+
+// viewport 추가
+function setViewport() {
+	const viewportWidth = window.screen.width < 768 ? 360 : 1920;
+	const viewportMeta = document.querySelector('meta[name="viewport"]');
+	viewportMeta.setAttribute("content", `width=${viewportWidth}`);
+}
+
+window.addEventListener("resize", setViewport);
+setViewport();
