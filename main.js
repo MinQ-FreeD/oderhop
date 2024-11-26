@@ -1,11 +1,11 @@
-// import "./style.css";
+import "./style.css";
 
 // * 배포전 수정해야할 사항
 // * 배포전 main.js > index.html에 style.css 주석처리
 // * 배포전 main.js > style.css 추가
 // * 이미지 주소 변경 > ./public/images > ./images
 // * style.css에 있는 background Image 주소 또한 ./public/images > ../images (dist 구조 때문에)
-// * style.css에 있는 폰트 주소 변경 필요 > ./public/fonts > ./fonts
+// * style.css에 있는 폰트 주소 변경 필요 > ./public/fonts > ../fonts
 // * 모두 세팅이 마치면 yarn deploy 실행 > 배포
 
 // * [상담하기, 사용문의하기], [데모 체험하기] 버튼 클릭 시 스크롤 이동
