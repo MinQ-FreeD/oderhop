@@ -1331,7 +1331,7 @@ footer h3 {
 
   /* section-1 */
   .section-1 h2 {
-    height: auto;
+    /* height: auto; */
     padding: 64px 0 33px 0;
     margin: 0 auto;
   }
@@ -1343,17 +1343,19 @@ footer h3 {
   .section-1 .contents .contents__left,
   .contents__right {
     flex: 1;
-    max-height: auto;
+    /* max-height: auto; */
   }
 
   .section-1 .contents .contents__left {
     position: sticky;
     top: 97px;
-    z-index: 1;
+    z-index: 10;
   }
 
   .section-1 .contents .contents__right {
-    z-index: 2;
+    position: sticky;
+    top: 0;
+    z-index: 20;
   }
 
   /* section-2 */
