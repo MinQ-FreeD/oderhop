@@ -177,12 +177,11 @@ const indicator = document.getElementById("carousel-count");
 let currentIndex = 0;
 const totalItems = carouselItems.length;
 
-// 캐시된 값
-const computedStyle = window.getComputedStyle(carousel);
-const gap = parseInt(computedStyle.gap, 10); // flex gap 값 가져오기
-const itemWidths = Array.from(carouselItems).map((item) => item.offsetWidth); // 각 아이템의 너비를 캐시
-
+// 각 아이템의 크기와 gap을 고려하여 이동
 function updateCarousel() {
+  // gap 값 동적으로 가져오기
+  const computedStyle = window.getComputedStyle(carousel);
+  const gap = parseInt(computedStyle.gap, 10); // flex gap 값 가져오기
   let offset = 0;
 
   // 화면 크기가 모바일일 때만 처리
@@ -194,20 +193,21 @@ function updateCarousel() {
 
     // 모바일 화면일 때
     for (let i = 0; i < currentIndex; i++) {
-      offset += itemWidths[i] + gap; // 각 아이템 크기와 gap 적용
+      offset += carouselItems[i].offsetWidth + gap; // 각 아이템 크기와 gap 적용
     }
 
     // 중앙 정렬을 위한 offset 보정
     const carouselWidth = carousel.offsetWidth;
-    const centerOffset = (carouselWidth - itemWidths[currentIndex]) / 2;
+    const centerOffset =
+      (carouselWidth - carouselItems[currentIndex].offsetWidth) / 2;
 
     if (currentIndex !== 0) {
-      offset -= centerOffset;
+      offset = offset - centerOffset;
     }
   } else {
     // 모바일이 아닌 화면에서 gap과 offset 계산
     for (let i = 0; i < currentIndex; i++) {
-      offset += itemWidths[i] + gap; // 각 아이템 크기와 gap 적용
+      offset += carouselItems[i].offsetWidth + gap; // 각 아이템 크기와 gap 적용
     }
   }
 
@@ -220,7 +220,11 @@ function updateCarousel() {
 
   // 각 아이템의 opacity 값 업데이트
   carouselItems.forEach((item, index) => {
-    item.style.opacity = index === currentIndex ? "1" : "0.5";
+    if (index === currentIndex) {
+      item.style.opacity = "1";
+    } else {
+      item.style.opacity = "0.5";
+    }
   });
 
   // indicator 업데이트
