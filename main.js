@@ -40,7 +40,7 @@ function smoothScrollWithOffset(buttonSelector, targetSelector, offset) {
 
 // 버튼들에 스크롤 기능 추가 (처음 로드 시)
 smoothScrollWithOffset(
-  ".nav-btn-consult, .banner-btn-consult",
+  ".nav-btn-consult, .banner-btn-consult, .test",
   "#contact",
   getHeaderHeight()
 );
